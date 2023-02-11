@@ -1,0 +1,13 @@
+.sidebar {
+    padding-top: 11px;
+    padding-bottom: 11px;
+
+    justify-content: center;
+}
+
+.sidebar-button {
+    font-weight: 400;
+    font-size: 24px;
+
+    color: #092F63;
+}

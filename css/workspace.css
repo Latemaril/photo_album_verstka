@@ -1,0 +1,40 @@
+.workspace {
+    padding-top: 54px;
+
+    justify-content: center;
+}
+
+.workspace-buttons {
+    display: flex;
+    gap: 54px;
+}
+
+.workspace-buttons button {
+    font-weight: 300;
+    font-size: 16px;
+
+    color: rgba(9, 47, 99, 0.4);
+}
+
+/*MOBILE VERSION*/
+
+.workspace-button-mobile {
+    padding-top: 175px;
+}
+
+.workspace-button-mobile {
+
+    font-weight: 400;
+    font-size: 20px;
+
+    color: #FFFFFF;
+}
+
+.workspace-button-mobile button{
+    width: 248px;
+    height: 76px;
+
+    background: #092F63;
+    border: 1px solid #092F63;
+    border-radius: 20px;
+}

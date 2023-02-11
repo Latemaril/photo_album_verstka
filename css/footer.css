@@ -1,0 +1,31 @@
+.footer {
+    padding: 14px 14px;
+
+    background: #E4E8F1;
+}
+
+.footer-buttons-main {
+    width: 100%;
+
+    padding-right: 10px;
+    padding-left: 10px;
+
+    justify-content: space-between;
+}
+
+.footer-buttons-main {
+    font-weight: 300;
+    font-size: 8px;
+
+    color: rgba(9, 47, 99, 0.4);
+}
+
+.footer-buttons-main button {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}

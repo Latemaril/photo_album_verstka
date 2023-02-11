@@ -1,0 +1,50 @@
+.header {
+    padding: 0 10px 26px 10px;
+
+    flex-direction: column;
+}
+
+.header-desktop {
+    width: 100%;
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-mobile {
+    justify-content: center;
+}
+
+.header-mobile span {
+    padding-top: 30px;
+
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.header-buttons {
+
+}
+
+.header-button-order {
+    width: 190px;
+    height: 67px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.header-button-order.is-inactive {
+    background: rgba(9, 47, 99, 0.5);
+}
+
+.header-button-hints {
+    padding-right: 43px;
+
+    font-weight: 300;
+    font-size: 16px;
+}

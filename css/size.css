@@ -1,0 +1,82 @@
+.l-size-container {
+    position: relative;
+    width: 650px;
+    height: 584px;
+
+    margin: 10.6rem auto 278px;
+
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.size {
+    background-color: #FFFFFF;
+    padding: 20px 20px;
+}
+
+.size-button-exit {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.size-title {
+    padding-top: 20px;
+
+    font-weight: 400;
+    font-size: 32px;
+
+    color: #092F63;
+}
+
+.size-buttons {
+    padding-top: 73px;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 45px 88px;
+}
+
+.size-buttons button {
+    width: 176px;
+    height: 54px;
+
+    background: #FBFBFB;
+    border: 1px solid #092F63;
+    border-radius: 20px
+}
+
+.size-buttons button {
+    font-weight: 400;
+    font-size: 20px;
+
+    color: #092F63;
+}
+
+.size-buttons button .is-active {
+    background: #092F63;
+
+    color: #F5F5F5;
+}
+
+.size-button-choice {
+    padding-top: 83px;
+}
+
+.size-button-choice button {
+    width: 153px;
+    height: 51px;
+
+    background: #092F63;
+    border: 2px solid #092F63;
+    border-radius: 10px;
+}
+
+.size-button-choice button {
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
