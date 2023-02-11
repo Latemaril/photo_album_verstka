@@ -71,6 +71,8 @@
     .l-size-container {
         width: 273px;
         height: 394px;
+
+        margin: 8rem auto 278px;
     }
 
     .size-button-exit svg {
@@ -184,6 +186,8 @@
     .l-size-container {
         width: 327px;
         height: 394px;
+
+        margin: 8rem auto 278px;
     }
 
     .size-button-exit svg {
