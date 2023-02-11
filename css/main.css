@@ -18,6 +18,7 @@ html, body{
     min-height: 100%;
 
     font-family: 'Roboto', sans-serif;
+    overflow-y: auto;
 }
 
 a {
@@ -36,8 +37,10 @@ blockquote {
 }
 
 #workspace {
+    height: 100%;
     border-top: 1px solid #D8D7D7;
 
+    flex-grow: 1;
 }
 
 #sidebar {
@@ -59,12 +62,14 @@ blockquote {
     overflow-y: auto;
 }
 
+.wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 #footer {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    z-index: 0;
+    /*width: 600px;*/
 }
 
 .l-main-container {
