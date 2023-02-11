@@ -4,10 +4,6 @@
 @media (min-width:300px) and (max-width: 374px) {
 
     /*-------------MAIN-------------*/
-    body {
-        height: 100vh;
-    }
-
     #header {
         padding-top: 19px;
     }
@@ -122,11 +118,6 @@
 @media (min-width:375px) and (max-width: 960px) {
 
     /*-------------MAIN-------------*/
-
-    body {
-        height: 100vh;
-    }
-
     #header {
         padding-top: 19px;
     }
