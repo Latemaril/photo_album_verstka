@@ -2,6 +2,8 @@
 
 
 @media (max-width: 370px) {
+
+    /*-------------MAIN-------------*/
     body {
         height: 100vh;
     }
@@ -18,6 +20,7 @@
         display: block;
     }
 
+    /*-------------WORKSPACE-------------*/
     .workspace {
         padding-top: 0;
     }
@@ -26,6 +29,7 @@
         display: none;
     }
 
+    /*-------------HEADER-------------*/
     .header {
         padding: 0 24px 14px 24px;
     }
@@ -47,6 +51,10 @@
         height: 40px;
     }
 
+    .header-mobile span {
+        font-size: 13px;
+    }
+
     .header-button-order {
         width: 92px;
         height: 40px;
@@ -59,8 +67,9 @@
         font-size: 12px;
     }
 
+    /*-------------SIZE WINDOW-------------*/
     .l-size-container {
-        width: 327px;
+        width: 273px;
         height: 394px;
     }
 
@@ -106,23 +115,12 @@
         font-size: 16px;
     }
 
-    .l-size-container {
-        width: 273px;
-        height: 394px;
-    }
-
-    .header-mobile span {
-        font-size: 13px;
-    }
-
-    .l-size-container {
-        width: 273px;
-        height: 394px;
-    }
-
 }
 
 @media (min-width:360px) and (max-width: 768px) {
+
+    /*-------------MAIN-------------*/
+
     body {
         height: 100vh;
     }
@@ -139,6 +137,7 @@
         display: block;
     }
 
+    /*-------------WORKSPACE-------------*/
     .workspace {
         padding-top: 0;
     }
@@ -147,6 +146,7 @@
         display: none;
     }
 
+    /*-------------HEADER-------------*/
     .header {
         padding: 0 24px 14px 24px;
     }
@@ -180,6 +180,7 @@
         font-size: 12px;
     }
 
+    /*-------------SIZE WINDOW-------------*/
     .l-size-container {
         width: 327px;
         height: 394px;
@@ -230,6 +231,8 @@
 
 
 @media (min-width: 992px) {
+
+    /*-------------HEADER-------------*/
     .header-burger {
         display: none;
     }
@@ -238,11 +241,13 @@
         display: none;
     }
 
-    #footer {
+    /*-------------WORKSPACE-------------*/
+    .workspace-button-mobile {
         display: none;
     }
 
-    .workspace-button-mobile {
+    /*-------------FOOTER-------------*/
+    #footer {
         display: none;
     }
 
