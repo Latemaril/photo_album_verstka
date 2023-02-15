@@ -22,19 +22,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebarButton = document.querySelector('.sidebar-button')
     let sizeNumbers = 0
     let sizeMass = []
-    let hh = 0
+    let buttonCell
     const sidebarSizes = '<button class="sidebar-size-button"></button>'
 
     sizeButtons.forEach((button) => {
-        selectButton.addEventListener('click', () => {
+        button.addEventListener('click', () => {
             if (button.classList.contains('is-active') && !button.classList.contains('selected')) {
                 button.classList.add('selected')
                 sizeNumbers += 1
-                hh = button.outerHTML
-                hh.className = 'alert'
+                buttonCell = button.outerHTML
+                buttonCell.className = 'alert'
                 sizeMass.push(button.outerHTML)
-                console.log(sizeNumbers)
-                // console.log(sizeMass)
             }
         })
     })
@@ -42,18 +40,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebarSizeButtons = document.querySelector('.sidebar-size-buttons')
 
     selectButton.addEventListener('click', () => {
+        console.log('pirate')
         sizeWindow.classList.toggle('is-active')
-        sidebarSizeButtons.classList.toggle('is-active')
+        sidebarSizeButtons.classList.add('is-active')
         let numbersSizeButtons = sidebarSizeButtons.childNodes.length
-        console.log(numbersSizeButtons)
-        if(sizeNumbers > 0 || numbersSizeButtons > 1) {
+        if((sizeNumbers > 0) && (!sidebarButton.classList.contains('is-inactive'))) {
             sidebarButton.classList.toggle('is-inactive')
-            console.log('hug')
+            console.log(sizeNumbers)
         }
 
-        for(let i = 0, numbers = sizeNumbers; i < numbers; i++) {
-            sidebarSizeButtons.insertAdjacentHTML('afterbegin', sizeMass[i])
+        function appendButtons() {
+            for(let i = 0, numbers = sizeNumbers; i < numbers; i++) {
+                sidebarSizeButtons.insertAdjacentHTML('afterbegin', sizeMass[i])
+            }
         }
+
+        const cleanStack = async () => {
+            await appendButtons()
+            sizeNumbers = 0
+            sizeMass = []
+            console.log(sizeNumbers, "djsdkuku")
+        }
+
+        cleanStack()
+
     })
 
 })
