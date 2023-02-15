@@ -38,6 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 
     const sidebarSizeButtons = document.querySelector('.sidebar-size-buttons')
+    const workspace = document.querySelector('.workspace')
+    const addButton = '<div class="workspace-button-add flex"><button> <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M0 15H30.5" stroke="#092F63" stroke-width="1.5"/> <path d="M15.5 0V30" stroke="#092F63" stroke-width="1.5"/> </svg><span>добавить фото</span> </button></div>'
 
     selectButton.addEventListener('click', () => {
         console.log('pirate')
@@ -46,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let numbersSizeButtons = sidebarSizeButtons.childNodes.length
         if((sizeNumbers > 0) && (!sidebarButton.classList.contains('is-inactive'))) {
             sidebarButton.classList.toggle('is-inactive')
+            workspace.insertAdjacentHTML('beforeend', addButton)
             console.log(sizeNumbers)
         }
 
