@@ -7,6 +7,7 @@
     <title>Рейтинги</title>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/media.css">
+    <script src="./js/main.js"></script>
 </head>
 <body>
 
@@ -43,13 +44,18 @@
         </header>
 
         <!--SIDEBAR DESKTOP-->
-        <section id="sidebar">
+        <article id="sidebar">
             <div class="l-main-container sidebar">
-                <button class="sidebar-button"  onclick="showWindow()">
+                <button class="sidebar-button size-toggle">
                     + выбрать размер фото
                 </button>
+                <div class="sidebar-size-buttons">
+                    <button class="sidebar-size-button another size-toggle">
+                        + другой размер фото
+                    </button>
+                </div>
             </div>
-        </section>
+        </article>
 
         <!--WORKSPACE-->
         <main id="workspace">
@@ -57,28 +63,51 @@
                 <!--DESKTOP BUTTONS-->
                 <div class="workspace-buttons">
                     <button class="">
-                        добавить фото
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.5 6L23 6.5L20 24L8 21.5" stroke="#9AA9BE"/>
+                            <path d="M5.5 15L7.5 11.5L10 13.5L13 7.5L15.5 15M6 4H6.5L8.5 5.5V7.5L6.5 9H6L4 7.5V5.5L6 4Z" stroke="#9AA9BE"/>
+                            <path d="M0.5 15H19" stroke="#9AA9BE"/>
+                            <path d="M0.5 19.5V0.5H19V19.5H0.5Z" stroke="#9AA9BE"/>
+                        </svg>
+                        <dd>добавить фото</dd>
                     </button>
                     <button class="">
-                        выделить всё
+                        <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 1H1V19.5H14V14H20V1Z" stroke="#9AA9BE"/>
+                            <path d="M14 19.5L19.5 14" stroke="#9AA9BE" stroke-width="0.5"/>
+                            <path d="M6 9.5L9 12.5L14 6" stroke="#9AA9BE"/>
+                        </svg>
+                        <dd>выделить всё</dd>
                     </button>
                     <button class="">
-                        удалить
+                        <svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 6.5H1M18 6.5H17M1 6.5L3 21.5H15.5L17 6.5M1 6.5H17" stroke="#9AA9BE"/>
+                            <path d="M2 6V5L4.5 3.5L6.5 4.5L7 5" stroke="#9AA9BE"/>
+                            <path d="M16 6V5L13.5 3.5L11.5 4.5L11 5" stroke="#9AA9BE"/>
+                            <path d="M5.5 4L9 1.5L13 4" stroke="#9AA9BE"/>
+                            <path d="M3.5 6.5L15.5 18.5" stroke="#9AA9BE"/>
+                            <path d="M14.5 6.5L2.5 18.5" stroke="#9AA9BE"/>
+                            <path d="M1.5 11L12 21.5" stroke="#9AA9BE"/>
+                            <path d="M16.5 11L6.5 21.5" stroke="#9AA9BE"/>
+                            <path d="M1.5 12.5L7.5 6.5" stroke="#9AA9BE"/>
+                            <path d="M10.5 6.5L15.5 12" stroke="#9AA9BE"/>
+                        </svg>
+                        <dd>удалить</dd>
                     </button>
                 </div>
                 <!--MOBILE BUTTONS-->
-                <div class="workspace-button-mobile">
-                    <button onclick="showWindow()">
-                        выбрать размер фото
+                <div class="workspace-button-mobile size-toggle">
+                    <button>
+                        + выбрать размер фото
                     </button>
                 </div>
             </div>
         </main>
 
         <!--SIZE WINDOW-->
-        <section id="size-window">
+        <article id="size-window">
             <div class="l-size-container size">
-                <button id="size-exit" class="size-button-exit" onclick="closeWindow()">
+                <button class="size-button-exit size-toggle">
                     <svg width="18" height="23" viewBox="0 0 18 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2.59375 0.25L9 9.85938L15.4219 0.25H17.7031L10.1719 11.4531L17.9375 23H15.6406L9 13.0781L2.35938 23H0.078125L7.84375 11.4531L0.3125 0.25H2.59375Z" fill="#092F63"/>
                     </svg>
@@ -93,47 +122,59 @@
                     <button>20 х 30 см</button>
                 </div>
                 <div class="size-button-choice">
-                    <button>выбрать</button>
+                    <button class="size-button-choose">выбрать</button>
                 </div>
             </div>
-        </section>
+        </article>
 
         <!--FOOTER MOBILE-->
         <footer id="footer">
             <div class="l-footer-container footer">
                 <div class="footer-buttons-main flex">
                     <button>
-                        <img src="img/main%20footer%20icons/иконка%20фото.png" alt="">
-                        добавить фотo
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.5 6L23 6.5L20 24L8 21.5" stroke="#9AA9BE"/>
+                            <path d="M5.5 15L7.5 11.5L10 13.5L13 7.5L15.5 15M6 4H6.5L8.5 5.5V7.5L6.5 9H6L4 7.5V5.5L6 4Z" stroke="#9AA9BE"/>
+                            <path d="M0.5 15H19" stroke="#9AA9BE"/>
+                            <path d="M0.5 19.5V0.5H19V19.5H0.5Z" stroke="#9AA9BE"/>
+                        </svg>
+                        <dd>добавить фотo</dd>
                     </button>
                     <button>
-                        <img src="img/main%20footer%20icons/иконка%20другой%20размер.png" alt="">
-                        + другой размер
+                        <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.5 0V0.5M0.5 0.5V9.5H9.5V0.5H0.5Z" stroke="#8C9EB8"/>
+                            <path d="M0.5 13V13.5M0.5 13.5V22.5H9.5V13.5H0.5Z" stroke="#8C9EB8"/>
+                            <path d="M13.5 9.5V0.5H22.5V9.5H13.5Z" stroke="#8C9EB8"/>
+                            <path d="M22.5 13.5H13.5V22.5H22.5V13.5Z" stroke="#8C9EB8"/>
+                        </svg>
+                        <dd>+ другой размер</dd>
                     </button>
                     <button>
-                        <img src="img/main%20footer%20icons/иконка%20выбрать%20все.png" alt="">
-                        выбрать всё
+                        <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 1H1V19.5H14V14H20V1Z" stroke="#9AA9BE"/>
+                            <path d="M14 19.5L19.5 14" stroke="#9AA9BE" stroke-width="0.5"/>
+                            <path d="M6 9.5L9 12.5L14 6" stroke="#9AA9BE"/>
+                        </svg>
+                        <dd>выбрать всё</dd>
                     </button>
                     <button>
-                        <img src="img/main%20footer%20icons/иконка%20удалить.png" alt="">
-                        удалить
+                        <svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 6.5H1M18 6.5H17M1 6.5L3 21.5H15.5L17 6.5M1 6.5H17" stroke="#9AA9BE"/>
+                            <path d="M2 6V5L4.5 3.5L6.5 4.5L7 5" stroke="#9AA9BE"/>
+                            <path d="M16 6V5L13.5 3.5L11.5 4.5L11 5" stroke="#9AA9BE"/>
+                            <path d="M5.5 4L9 1.5L13 4" stroke="#9AA9BE"/>
+                            <path d="M3.5 6.5L15.5 18.5" stroke="#9AA9BE"/>
+                            <path d="M14.5 6.5L2.5 18.5" stroke="#9AA9BE"/>
+                            <path d="M1.5 11L12 21.5" stroke="#9AA9BE"/>
+                            <path d="M16.5 11L6.5 21.5" stroke="#9AA9BE"/>
+                            <path d="M1.5 12.5L7.5 6.5" stroke="#9AA9BE"/>
+                            <path d="M10.5 6.5L15.5 12" stroke="#9AA9BE"/>
+                        </svg>
+                        <dd>удалить</dd>
                     </button>
                 </div>
             </div>
         </footer>
     </div>
-
-
-    <script type="text/javascript">
-        function showWindow(){
-            let el = document.getElementById("size-window")
-            el.classList.add("is-active")
-        }
-
-        function closeWindow(){
-            let el = document.getElementById("size-window")
-            el.classList.toggle("is-active")
-        }
-    </script>
 </body>
 </html>

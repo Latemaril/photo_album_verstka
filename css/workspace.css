@@ -9,11 +9,28 @@
     gap: 54px;
 }
 
-.workspace-buttons button {
+.workspace-buttons dd {
     font-weight: 300;
     font-size: 16px;
 
     color: rgba(9, 47, 99, 0.4);
+}
+
+.workspace-buttons button{
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+
+    align-items: center;
+    gap: 10px;
+}
+
+.workspace-buttons button:hover path{
+    stroke: #092F63;
+}
+
+.workspace-buttons button:hover dd{
+    color: #092F63;
 }
 
 /*MOBILE VERSION*/

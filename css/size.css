@@ -1,3 +1,7 @@
+#size-window.is-active {
+    display: flex !important;
+}
+
 .l-size-container {
     position: relative;
     width: 650px;
@@ -54,9 +58,10 @@
     color: #092F63;
 }
 
-.size-buttons button .is-active {
-    background: #092F63;
 
+
+.size-buttons button.is-active {
+    background: #092F63;
     color: #F5F5F5;
 }
 
