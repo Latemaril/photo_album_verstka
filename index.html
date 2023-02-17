@@ -46,11 +46,65 @@
         <!--SIDEBAR DESKTOP-->
         <article id="sidebar">
             <div class="l-main-container sidebar">
-                <button class="sidebar-button size-toggle">
+                <button class="sidebar-button size-toggle js-size-toggle js-sidebar-btn">
                     + выбрать размер фото
                 </button>
-                <div class="sidebar-size-buttons">
-                    <button class="sidebar-size-button another size-toggle">
+                <div class="sidebar-size-buttons js-sidebar-size-btns">
+                    <button data-size="10x15" class="js-size is-inactive">
+                        10 х 15 см
+                        <a class="js-size-close">
+                            <svg width="7" height="9" viewBox="0 0 7 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.5 0.5L6.5 8" stroke="#092F63"/>
+                                <path d="M6.5 0.5L0.5 8" stroke="#092F63"/>
+                            </svg>
+                        </a>
+                    </button>
+                    <button data-size="9x13" class="js-size is-inactive">
+                        9 х 13 см
+                        <a class="js-size-close">
+                            <svg width="7" height="9" viewBox="0 0 7 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.5 0.5L6.5 8" stroke="#092F63"/>
+                                <path d="M6.5 0.5L0.5 8" stroke="#092F63"/>
+                            </svg>
+                        </a>
+                    </button>
+                    <button data-size="7,5x10" class="js-size is-inactive">
+                        7,5 х 10 см
+                        <a class="js-size-close">
+                            <svg width="7" height="9" viewBox="0 0 7 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.5 0.5L6.5 8" stroke="#092F63"/>
+                                <path d="M6.5 0.5L0.5 8" stroke="#092F63"/>
+                            </svg>
+                        </a>
+                    </button>
+                    <button data-size="13x18" class="js-size is-inactive">
+                        13 х 18 см
+                        <a class="js-size-close">
+                            <svg width="7" height="9" viewBox="0 0 7 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.5 0.5L6.5 8" stroke="#092F63"/>
+                                <path d="M6.5 0.5L0.5 8" stroke="#092F63"/>
+                            </svg>
+                        </a>
+                    </button>
+                    <button data-size="7,5x7,5" class="js-size is-inactive">
+                        7,5 х 7,5 см
+                        <a class="js-size-close">
+                            <svg width="7" height="9" viewBox="0 0 7 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.5 0.5L6.5 8" stroke="#092F63"/>
+                                <path d="M6.5 0.5L0.5 8" stroke="#092F63"/>
+                            </svg>
+                        </a>
+                    </button>
+                    <button data-size="20x30" class="js-size is-inactive">
+                        20 х 30 см
+                        <a class="js-size-close">
+                            <svg width="7" height="9" viewBox="0 0 7 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.5 0.5L6.5 8" stroke="#092F63"/>
+                                <path d="M6.5 0.5L0.5 8" stroke="#092F63"/>
+                            </svg>
+                        </a>
+                    </button>
+                    <button class="sidebar-size-button another size-toggle js-size-toggle">
                         + другой размер фото
                     </button>
                 </div>
@@ -59,7 +113,7 @@
 
         <!--WORKSPACE-->
         <main id="workspace">
-            <div class="l-main-container workspace">
+            <div class="l-main-container workspace js-workspace">
                 <!--DESKTOP BUTTONS-->
                 <div class="workspace-buttons">
                     <button class="">
@@ -97,7 +151,7 @@
                 </div>
 
                 <!--MOBILE BUTTONS-->
-                <div class="workspace-button-mobile size-toggle">
+                <div class="workspace-button-mobile size-toggle js-size-toggle">
                     <button>
                         + выбрать размер фото
                     </button>
@@ -108,22 +162,22 @@
         <!--SIZE WINDOW-->
         <article id="size-window">
             <div class="l-size-container size">
-                <button class="size-button-exit size-toggle">
+                <button class="size-button-exit size-toggle js-size-toggle">
                     <svg width="18" height="23" viewBox="0 0 18 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2.59375 0.25L9 9.85938L15.4219 0.25H17.7031L10.1719 11.4531L17.9375 23H15.6406L9 13.0781L2.35938 23H0.078125L7.84375 11.4531L0.3125 0.25H2.59375Z" fill="#092F63"/>
                     </svg>
                 </button>
                 <span class="size-title">Выбрать размер фото</span>
-                <div class="size-buttons">
-                    <button>10 х 15 см</button>
-                    <button>9 х 13 см</button>
-                    <button>7,5 х 10 см</button>
-                    <button>13 х 18 см</button>
-                    <button>7,5 х 7,5 см</button>
-                    <button>20 х 30 см</button>
+                <div class="size-buttons js-size-btns">
+                    <button data-size="10x15">10 х 15 см</button>
+                    <button data-size="9x13">9 х 13 см</button>
+                    <button data-size="7,5x10">7,5 х 10 см</button>
+                    <button data-size="13x18">13 х 18 см</button>
+                    <button data-size="7,5x7,5">7,5 х 7,5 см</button>
+                    <button data-size="20x30">20 х 30 см</button>
                 </div>
                 <div class="size-button-choice">
-                    <button class="size-button-choose">выбрать</button>
+                    <button class="size-button-choose js-size-btn-choose">выбрать</button>
                 </div>
             </div>
         </article>
@@ -139,7 +193,7 @@
                             <path d="M0.5 15H19" stroke="#9AA9BE"/>
                             <path d="M0.5 19.5V0.5H19V19.5H0.5Z" stroke="#9AA9BE"/>
                         </svg>
-                        <dd>добавить фотo</dd>
+                        <span>добавить фотo</span>
                     </button>
                     <button>
                         <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -148,7 +202,7 @@
                             <path d="M13.5 9.5V0.5H22.5V9.5H13.5Z" stroke="#8C9EB8"/>
                             <path d="M22.5 13.5H13.5V22.5H22.5V13.5Z" stroke="#8C9EB8"/>
                         </svg>
-                        <dd>+ другой размер</dd>
+                        <span>+ другой размер</span>
                     </button>
                     <button>
                         <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -156,7 +210,7 @@
                             <path d="M14 19.5L19.5 14" stroke="#9AA9BE" stroke-width="0.5"/>
                             <path d="M6 9.5L9 12.5L14 6" stroke="#9AA9BE"/>
                         </svg>
-                        <dd>выбрать всё</dd>
+                        <span>выбрать всё</span>
                     </button>
                     <button>
                         <svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -171,7 +225,7 @@
                             <path d="M1.5 12.5L7.5 6.5" stroke="#9AA9BE"/>
                             <path d="M10.5 6.5L15.5 12" stroke="#9AA9BE"/>
                         </svg>
-                        <dd>удалить</dd>
+                        <span>удалить</span>
                     </button>
                 </div>
             </div>

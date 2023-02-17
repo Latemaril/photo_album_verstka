@@ -1,17 +1,22 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     const sizeWindow = document.getElementById('size-window')
-    const sizeToggle = document.querySelectorAll('.size-toggle')
+    const sizeToggle = document.querySelectorAll('.js-size-toggle')
+    const sizeButtons = document.querySelector('.js-size-btns').childNodes
+    const selectButton = document.querySelector('.js-size-btn-choose')
+    const sidebarButton = document.querySelector('.js-sidebar-btn')
+    const sidebarSizeButtons = document.querySelector('.js-sidebar-size-btns')
+    const sizeButtonsActive = document.querySelectorAll('.js-size')
+    const sizeCloseButtons= document.querySelectorAll('.js-size-close')
+    let sizeNumbers = 0
+    let sizeMass = []
+    let dataSize = []
 
     sizeToggle.forEach((button) => {
         button.addEventListener('click', () => {
             sizeWindow.classList.toggle('is-active')
         })
     })
-
-    /* SIZE SELECTION */
-    const sizeButtons = document.querySelector('.size-buttons').childNodes
-    const selectButton = document.querySelector('.size-button-choose')
 
 
     sizeButtons.forEach((button) => {
@@ -20,56 +25,91 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     })
 
-    const sidebarButton = document.querySelector('.sidebar-button')
-    let sizeNumbers = 0
-    let sizeMass = []
-    let buttonCell
-
     sizeButtons.forEach((button) => {
         button.addEventListener('click', () => {
-            if (button.classList.contains('is-active') && !button.classList.contains('selected')) {
+            if (button.classList.contains('is-active') && !button.classList.contains('js-selected')) {
                 sizeNumbers += 1
 
-                button.classList.add('selected')
+                button.classList.add('js-selected')
 
-                buttonCell = button.outerHTML
-                buttonCell.className = 'alert'
-
-                sizeMass.push(button.outerHTML)
+                // sizeMass.push(button.innerHTML)
+                dataSize.push(button.getAttribute('data-size'))
             }
         })
     })
 
-    const sidebarSizeButtons = document.querySelector('.sidebar-size-buttons')
-    const workspace = document.querySelector('.workspace')
-    const addButton = '<div class="workspace-button-add flex"><button> <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M0 15H30.5" stroke="#092F63" stroke-width="1.5"/> <path d="M15.5 0V30" stroke="#092F63" stroke-width="1.5"/> </svg><span>добавить фото</span> </button></div>'
 
     selectButton.addEventListener('click', () => {
+
 
         sizeWindow.classList.toggle('is-active')
         sidebarSizeButtons.classList.add('is-active')
 
-        let numbersSizeButtons = sidebarSizeButtons.childNodes.length
-
-        if((sizeNumbers > 0) && (!sidebarButton.classList.contains('is-inactive'))) {
+        if ((sizeNumbers > 0) && (!sidebarButton.classList.contains('is-inactive'))) {
             sidebarButton.classList.toggle('is-inactive')
-            workspace.insertAdjacentHTML('beforeend', addButton)
         }
 
-        function appendButtons() {
-            for(let i = 0, numbers = sizeNumbers; i < numbers; i++) {
-                sidebarSizeButtons.insertAdjacentHTML('afterbegin', sizeMass[i])
+        for (let i = 0; i < sizeNumbers; i++) {
+            for (let j = 0; j < sizeButtonsActive.length; j++) {
+                if (dataSize[i] === sizeButtonsActive[j].getAttribute('data-size') && sizeButtonsActive[j].classList.contains('is-inactive')) {
+                    sizeButtonsActive[j].classList.toggle('is-inactive')
+                }
             }
         }
 
-        const cleanStack = async () => {
-            await appendButtons()
+        sizeCloseButtons.forEach((close) => {
+            close.addEventListener('click', () => {
 
-            sizeNumbers = 0
-            sizeMass = []
-        }
+            })
+        })
 
-        cleanStack()
+        // function appendButtons() {
+        //     for (let i = 0, numbers = sizeNumbers; i < numbers; i++) {
+        //
+        //         function addButton() {
+        //             sidebarSizeButtons.insertAdjacentHTML('afterbegin', sizeButtonPattern)
+        //         }
+        //         const filling = async () => {
+        //             await addButton()
+        //
+        //             sizes.forEach( (size) => {
+        //                 if(size.classList.contains('js-cash')) {
+        //
+        //                 }
+        //                 size.setAttribute('data-size', dataSize[i])
+        //                 size.textContent = sizeMass[i]
+        //             })
+        //         }
+        //
+        //         filling().then(() => {
+        //             console.log('completed')
+        //         })
+        //
+        //         let sizes = document.querySelectorAll('.js-size')
+        //
+        //         sizes.forEach((size) => {
+        //             size.addEventListener('click', () => {
+        //                 sizes.forEach((n) => {
+        //                     n.classList.remove('is-active')
+        //                 })
+        //                 setTimeout(() => {
+        //                     size.classList.add('is-active')
+        //                 })
+        //             })
+        //         })
+        //     }
+        // }
+
+        // const cleanStack = async () => {
+        //     await appendButtons()
+        //
+        //     sizeNumbers = 0
+        //     sizeMass = []
+        // }
+        //
+        // cleanStack().then(() => {
+        //     console.log('completed')
+        // })
 
     })
 

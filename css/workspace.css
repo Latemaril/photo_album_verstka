@@ -11,7 +11,7 @@
     justify-content: center;
 }
 
-.workspace-buttons dd {
+.workspace-buttons span {
     font-weight: 300;
     font-size: 16px;
 
@@ -31,7 +31,7 @@
     stroke: #092F63;
 }
 
-.workspace-buttons button:hover dd{
+.workspace-buttons button:hover span{
     color: #092F63;
 }
 
@@ -72,6 +72,12 @@
 
 .workspace-button-mobile {
     padding-top: 20vh;
+
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+
+    justify-content: center;
 }
 
 .workspace-button-mobile {
