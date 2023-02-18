@@ -40,8 +40,6 @@ blockquote {
 
 #header {
     padding-top: 72px;
-
-    border-bottom: 1px solid #D8D7D7;
 }
 
 #workspace {
@@ -55,6 +53,8 @@ blockquote {
 
 #sidebar {
     min-height: 51px;
+
+    border-top: 1px solid #D8D7D7;
 }
 
 #size-window {

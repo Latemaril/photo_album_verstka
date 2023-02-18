@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const sizeButtonsActive = document.querySelectorAll('.js-size')
     const sizeCloseButtons= document.querySelectorAll('.js-size-close')
     let sizeNumbers = 0
-    let sizeMass = []
     let dataSize = []
 
     sizeToggle.forEach((button) => {
@@ -21,23 +20,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
     sizeButtons.forEach((button) => {
         button.addEventListener('click', () => {
-            button.classList.toggle('is-active')
+
         })
     })
 
     sizeButtons.forEach((button) => {
         button.addEventListener('click', () => {
-            if (button.classList.contains('is-active') && !button.classList.contains('js-selected')) {
+            if (!button.classList.contains('is-active')) {
                 sizeNumbers += 1
 
-                button.classList.add('js-selected')
+                button.classList.toggle('is-active')
+                button.classList.toggle('js-selected')
 
-                // sizeMass.push(button.innerHTML)
                 dataSize.push(button.getAttribute('data-size'))
+            }
+            else if (!button.classList.contains('js-froze')) {
+                for (let i = 0; i < dataSize.length; i++) {
+                    if (button.getAttribute('data-size') === dataSize[i]) {
+                        button.classList.toggle('is-active')
+                        button.classList.toggle('js-selected')
+                        delete dataSize[i]
+                    }
+                }
             }
         })
     })
-
 
     selectButton.addEventListener('click', () => {
 
@@ -49,67 +56,46 @@ document.addEventListener('DOMContentLoaded', function () {
             sidebarButton.classList.toggle('is-inactive')
         }
 
-        for (let i = 0; i < sizeNumbers; i++) {
-            for (let j = 0; j < sizeButtonsActive.length; j++) {
-                if (dataSize[i] === sizeButtonsActive[j].getAttribute('data-size') && sizeButtonsActive[j].classList.contains('is-inactive')) {
-                    sizeButtonsActive[j].classList.toggle('is-inactive')
+        function toggleSizes() {
+            let buttonsSizeSelected = document.querySelectorAll('.js-selected')
+            buttonsSizeSelected.forEach((selected) => {
+                if (!selected.classList.contains('js-froze')) {
+                    selected.classList.toggle('js-froze')
+                }
+            })
+
+            for (let i = 0; i < sizeNumbers; i++) {
+                for (let j = 0; j < sizeButtonsActive.length; j++) {
+                    if (dataSize[i] === sizeButtonsActive[j].getAttribute('data-size') && sizeButtonsActive[j].classList.contains('is-inactive')) {
+                        sizeButtonsActive[j].classList.toggle('is-inactive')
+                    }
                 }
             }
         }
 
-        sizeCloseButtons.forEach((close) => {
-            close.addEventListener('click', () => {
+        const cleanStack = async () => {
+            await toggleSizes()
+            dataSize = []
+        }
 
-            })
+        cleanStack().then(() => {
+            console.log('completed')
         })
 
-        // function appendButtons() {
-        //     for (let i = 0, numbers = sizeNumbers; i < numbers; i++) {
-        //
-        //         function addButton() {
-        //             sidebarSizeButtons.insertAdjacentHTML('afterbegin', sizeButtonPattern)
-        //         }
-        //         const filling = async () => {
-        //             await addButton()
-        //
-        //             sizes.forEach( (size) => {
-        //                 if(size.classList.contains('js-cash')) {
-        //
-        //                 }
-        //                 size.setAttribute('data-size', dataSize[i])
-        //                 size.textContent = sizeMass[i]
-        //             })
-        //         }
-        //
-        //         filling().then(() => {
-        //             console.log('completed')
-        //         })
-        //
-        //         let sizes = document.querySelectorAll('.js-size')
-        //
-        //         sizes.forEach((size) => {
-        //             size.addEventListener('click', () => {
-        //                 sizes.forEach((n) => {
-        //                     n.classList.remove('is-active')
-        //                 })
-        //                 setTimeout(() => {
-        //                     size.classList.add('is-active')
-        //                 })
-        //             })
-        //         })
-        //     }
-        // }
-
-        // const cleanStack = async () => {
-        //     await appendButtons()
-        //
-        //     sizeNumbers = 0
-        //     sizeMass = []
-        // }
-        //
-        // cleanStack().then(() => {
-        //     console.log('completed')
-        // })
+        sizeCloseButtons.forEach((close) => {
+            close.addEventListener('click', () => {
+                let buttonsSizeSelected = document.querySelectorAll('.js-selected')
+                for (let j = 0; j < buttonsSizeSelected.length; j++) {
+                    if (close.parentElement.getAttribute('data-size') === buttonsSizeSelected[j].getAttribute('data-size')) {
+                        close.parentElement.classList.toggle('is-inactive')
+                        buttonsSizeSelected[j].classList.remove( 'js-selected')
+                        buttonsSizeSelected[j].classList.toggle('js-froze')
+                        buttonsSizeSelected[j].classList.toggle( 'is-active')
+                        console.log('cucu')
+                    }
+                }
+            })
+        })
 
     })
 
