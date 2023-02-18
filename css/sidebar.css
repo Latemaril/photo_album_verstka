@@ -29,6 +29,10 @@
     gap: 31px;
 }
 
+.sidebar-size-button, .sidebar-size-buttons {
+    font-size: 20px;
+}
+
 .sidebar-size-buttons  button{
     position: relative;
 }
@@ -62,9 +66,23 @@
     display: none;
 }
 
-.js-size a{
+.sidebar-size-buttons a{
     position: absolute;
 
-    top: 0px;
-    right: 9.5px;
+    top: 6px;
+    right: 10px;
+}
+
+.sidebar-size-buttons a:before, .sidebar-size-buttons a:after {
+    position: absolute;
+    content: ' ';
+    height: 10px;
+    width: 1px;
+    background-color: #092F63;
+}
+.sidebar-size-buttons a:before {
+    transform: rotate(40deg);
+}
+.sidebar-size-buttons a:after {
+    transform: rotate(-40deg);
 }
