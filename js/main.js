@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 dataSize.push(button.getAttribute('data-size'))
             }
-            else if (!button.classList.contains('js-froze')) {
+            else if (!button.classList.contains('is-froze')) {
                 for (let i = 0; i < dataSize.length; i++) {
                     if (button.getAttribute('data-size') === dataSize[i]) {
                         button.classList.toggle('is-active')
@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', function () {
         function toggleSizes() {
             let buttonsSizeSelected = document.querySelectorAll('.js-selected')
             buttonsSizeSelected.forEach((selected) => {
-                if (!selected.classList.contains('js-froze')) {
-                    selected.classList.toggle('js-froze')
+                if (!selected.classList.contains('is-froze')) {
+                    selected.classList.toggle('is-froze')
                 }
             })
 
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (close.parentElement.getAttribute('data-size') === buttonsSizeSelected[j].getAttribute('data-size')) {
                         close.parentElement.classList.toggle('is-inactive')
                         buttonsSizeSelected[j].classList.remove( 'js-selected')
-                        buttonsSizeSelected[j].classList.toggle('js-froze')
+                        buttonsSizeSelected[j].classList.toggle('is-froze')
                         buttonsSizeSelected[j].classList.toggle( 'is-active')
                         console.log('cucu')
                     }

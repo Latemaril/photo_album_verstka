@@ -106,4 +106,11 @@ div[class*="m-"] {
     display: -ms-flexbox;
 }
 
+.is-froze {
+    background: rgba(9, 47, 99, 0.5) !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+
+    border: none !important;
+}
+
 
