@@ -7,6 +7,13 @@
 
 .workspace-buttons {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.workspace-buttons-mini  {
+    display: flex;
     gap: 54px;
     justify-content: center;
 }
@@ -18,7 +25,7 @@
     color: rgba(9, 47, 99, 0.4);
 }
 
-.workspace-buttons button{
+.workspace-buttons-mini button{
     display: flex;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -27,11 +34,11 @@
     gap: 10px;
 }
 
-.workspace-buttons button:hover path{
+.workspace-buttons-mini button:hover path{
     stroke: #092F63;
 }
 
-.workspace-buttons button:hover span{
+.workspace-buttons-mini button:hover span{
     color: #092F63;
 }
 
@@ -68,6 +75,32 @@
     color: #092F63;
 }
 
+.workspace-button-big {
+    display: none;
+}
+
+.workspace-button-big.is-active{
+    display: flex;
+    justify-content: center;
+
+    margin-top: 148px;
+    padding: 30px 30px;
+
+    width: 229px;
+    height: 293px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.workspace-button-big span{
+    font-weight: 300;
+    font-size: 24px;
+
+    color: #092F63;
+}
+
 /*MOBILE VERSION*/
 
 .workspace-button-mobile {
@@ -96,3 +129,6 @@
     border: 1px solid #092F63;
     border-radius: 20px;
 }
+
+
+

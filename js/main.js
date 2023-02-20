@@ -7,7 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const sidebarButton = document.querySelector('.js-sidebar-btn')
     const sidebarSizeButtons = document.querySelector('.js-sidebar-size-btns')
     const sizeButtonsActive = document.querySelectorAll('.js-size')
-    const sizeCloseButtons= document.querySelectorAll('.js-size-close')
+    const sizeCloseButtons = document.querySelectorAll('.js-size-close')
+    const downloadClose = document.querySelector('.js-download-close')
+    const bigButton = document.querySelector('.workspace-button-big')
+    const downloadWindow = document.getElementById('download-window')
+    const downloadHeaderButtons = document.querySelector('.download-header').childNodes
     let sizeNumbers = 0
     let dataSize = []
 
@@ -94,6 +98,67 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log('cucu')
                     }
                 }
+            })
+        })
+
+        sizeButtonsActive.forEach((select) => {
+            select.addEventListener('click', () => {
+                if (document.querySelector('.is-selected') && !select.classList.contains('is-selected')) {
+
+                    function tt() {
+                        document.querySelector('.is-selected').classList.toggle('is-selected')
+                        document.querySelector('.workspace-button-big').classList.toggle('is-active')
+                    }
+                    const cc = async () => {
+                        await tt()
+                        select.classList.toggle('is-selected')
+                        document.querySelector('.workspace-button-big').classList.toggle('is-active')
+                    }
+
+                    cc().then(() => {
+                        console.log('completed')
+                    })
+                    console.log('find')
+                }
+                else {
+                    select.classList.toggle('is-selected')
+                    document.querySelector('.workspace-button-big').classList.toggle('is-active')
+                }
+            })
+        })
+
+        bigButton.addEventListener('click', () => {
+            downloadWindow.classList.toggle('is-active')
+        })
+
+        downloadClose.addEventListener('click', () => {
+            downloadWindow.classList.toggle('is-active')
+        })
+
+        downloadHeaderButtons.forEach((select) => {
+            select.addEventListener('click', () => {
+                if (document.querySelector('.js-storage-selected') && !select.classList.contains('js-storage-selected')) {
+
+                    function tt() {
+                        document.querySelector('.js-storage-selected').classList.toggle('js-storage-selected')
+
+                        console.log('1')
+                    }
+                    const cc = async () => {
+                        await tt()
+                        select.classList.toggle('js-storage-selected')
+                        console.log('2')
+                    }
+
+                    cc().then(() => {
+                        console.log('completed')
+                    })
+                }
+                else {
+                    select.classList.toggle('js-storage-selected')
+                    console.log('3')
+                }
+                console.log(downloadHeaderButtons)
             })
         })
 

@@ -66,6 +66,10 @@
     display: none;
 }
 
+.sidebar-size-buttons.is-active .is-selected {
+    background-color: #F4F6FB;
+}
+
 .sidebar-size-buttons a{
     position: absolute;
 
