@@ -25,22 +25,32 @@
     color: rgba(9, 47, 99, 0.4);
 }
 
-.workspace-buttons-mini button{
+.workspace-buttons-mini button.is-visible {
     display: flex;
-    display: -webkit-flex;
-    display: -ms-flexbox;
+}
+
+.workspace-buttons-mini button{
+    display: none;
 
     align-items: center;
     gap: 10px;
 }
 
-.workspace-buttons-mini button:hover path{
+.workspace-buttons-mini button.is-active path{
     stroke: #092F63;
 }
 
-.workspace-buttons-mini button:hover span{
+.workspace-buttons-mini button.is-active span{
     color: #092F63;
 }
+
+/*.workspace-buttons-mini button:hover path{*/
+/*    stroke: #092F63;*/
+/*}*/
+
+/*.workspace-buttons-mini button:hover span{*/
+/*    color: #092F63;*/
+/*}*/
 
 .workspace-button-add {
     padding-top: 148px;
@@ -80,13 +90,15 @@
 }
 
 .workspace-button-big.is-active{
+    position: relative;
+
     display: flex;
     justify-content: center;
 
     margin-top: 148px;
     padding: 30px 30px;
 
-    width: 229px;
+    width: 230px;
     height: 293px;
 
     background: #FFFFFF;
@@ -95,10 +107,83 @@
 }
 
 .workspace-button-big span{
+    padding-top: 9px;
+
+    align-self: center;
+
     font-weight: 300;
     font-size: 24px;
 
     color: #092F63;
+}
+
+.workspace-button-big a:before, .workspace-button-big a:after {
+    position: absolute;
+    top: 94px;
+    right: 110px;
+
+    content: ' ';
+    height: 30px;
+    width: 2px;
+    background-color: #092F63;
+}
+.workspace-button-big a:before {
+    transform: rotate(90deg);
+}
+.workspace-button-big a:after {
+    transform: rotate(0deg);
+}
+
+.workspace-photos {
+    display: none;
+}
+
+.workspace-photos.is-active {
+    display: flex;
+
+    width: 100%;
+    height: 300px;
+
+    padding-top: 29.5px;
+}
+
+.workspace-photos .photos-container.vertical {
+    position: relative;
+
+    width: 236.5px;
+    height: 306.5px;
+
+    padding: 13.5px 13.5px;
+}
+
+.workspace-photos .photos-container.horizontal {
+    position: relative;
+
+    width: 236.5px;
+    height: 183.5px;
+
+    padding: 13.5px 13.5px;
+}
+
+.workspace-photos .photo {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.workspace-photos .photo .photo-footer{
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    height: 43px;
+
+    background: #D9D9D9;
 }
 
 /*MOBILE VERSION*/

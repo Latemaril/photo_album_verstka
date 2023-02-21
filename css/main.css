@@ -1,6 +1,6 @@
 @import "reset.css";
 @import "header.css";
-@import "sidebar.css";
+@import "under-header.css";
 @import "workspace.css";
 @import "size.css";
 @import "footer.css";
@@ -53,13 +53,13 @@ blockquote {
     background-color: #FBFBFB;
 }
 
-#sidebar {
+#under-header {
     min-height: 51px;
 
     border-top: 1px solid #D8D7D7;
 }
 
-#sidebar button {
+#under-header button {
     color: #092F63;
 }
 
@@ -104,7 +104,7 @@ blockquote {
 }
 
 .l-main-container {
-    max-width: 1240px;
+    max-width: 1440px;
 
     margin-right: auto;
     margin-left: auto;

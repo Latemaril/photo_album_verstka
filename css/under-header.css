@@ -1,0 +1,94 @@
+.under-header {
+    position: relative;
+    height: 100%;
+
+    padding-top: 11px;
+    padding-bottom: 11px;
+
+    justify-content: center;
+}
+
+.under-header-button {
+    font-weight: 400;
+    font-size: 24px;
+
+    color: #092F63;
+}
+
+.under-header-button.is-inactive {
+    display: none;
+}
+
+.under-header-size-buttons {
+    display: none;
+
+    position: absolute;
+    top: -2px;
+
+    justify-content: center;
+    gap: 31px;
+}
+
+.under-header-size-button, .under-header-size-buttons {
+    font-size: 20px;
+}
+
+.under-header-size-buttons  button{
+    position: relative;
+}
+
+.under-header-size-buttons.is-active {
+    display: flex!important;
+}
+
+.under-header-size-buttons.is-active button{
+    width: 132px;
+    height: 55px;
+
+    background-color: #FFFFFF;
+    border: 1.5px solid #092F63;
+    border-radius: 10px;
+}
+
+.under-header-size-buttons.is-active button.is-active{
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #F4F6FB;
+}
+
+.under-header-size-buttons.is-active .another{
+    width: 274px;
+    height: 55px;
+
+    background: #FFFFFF;
+}
+
+.under-header-size-buttons .is-inactive {
+    display: none;
+}
+
+.under-header-size-buttons.is-active .is-selected {
+    background-color: #F4F6FB;
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.under-header-size-buttons a{
+    position: absolute;
+
+    top: 6px;
+    right: 10px;
+}
+
+.under-header-size-buttons a:before, .under-header-size-buttons a:after {
+    position: absolute;
+    content: ' ';
+    height: 10px;
+    width: 1px;
+    background-color: #092F63;
+}
+.under-header-size-buttons a:before {
+    transform: rotate(40deg);
+}
+.under-header-size-buttons a:after {
+    transform: rotate(-40deg);
+}
