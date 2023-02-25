@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 for (let j = 0; j < buttonsSizeSelected.length; j++) {
                     if (close.parentElement.getAttribute('data-size') === buttonsSizeSelected[j].getAttribute('data-size')) {
                         close.parentElement.classList.toggle('is-inactive')
+                        close.parentElement.firstElementChild.classList.toggle('is-selected')
                         buttonsSizeSelected[j].classList.remove( 'js-selected')
                         buttonsSizeSelected[j].classList.toggle('is-froze')
                         buttonsSizeSelected[j].classList.toggle( 'is-active')
@@ -128,10 +129,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 for (let j = 0; j < buttonsSizeSelected.length; j++) {
                     if (close.parentElement.getAttribute('data-size') === buttonsSizeSelected[j].getAttribute('data-size')) {
                         close.parentElement.classList.toggle('is-inactive')
+                        close.parentElement.firstElementChild.classList.toggle('is-selected')
                         buttonsSizeSelected[j].classList.remove( 'js-selected')
                         buttonsSizeSelected[j].classList.toggle('is-froze')
                         buttonsSizeSelected[j].classList.toggle( 'is-active')
-                        console.log('MAMA')
 
                         // Выключаем блок с фотографиями в рабочей области соответствующий своей кнопке-вкладке (тоесть опять идёт проверка на соответствие data-size)
                         for (let i = 0; i < dataSizeBlocks.length; i++) {
@@ -144,6 +145,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
             }
+
+            if(workspaceBigButton.classList.contains('is-active')) {
+                workspaceBigButton.classList.toggle('is-active')
+            }
         })
     })
 
@@ -152,71 +157,69 @@ document.addEventListener('DOMContentLoaded', function () {
         select.addEventListener('click', () => {
             // Проверяем включен ли хоть один блок с фотографиями
             if (!document.querySelector('.js-workspace-block.js-active')) { // Если нет, то
-                if (document.querySelector('.js-size.is-selected') && !select.classList.contains('is-selected')) { // В случае если найдётся выбранная на данный момент вкладка и она не является той на которую мы только что нажали
+                if (document.querySelector('.js-size span.is-selected') && !select.classList.contains('is-selected')) { // В случае если найдётся выбранная на данный момент вкладка и она не является той на которую мы только что нажали
 
                     function tt() {
                         document.querySelector('.is-selected').classList.toggle('is-selected')  // Текующая выбранная кнопка-вкладка перестаёт быть таковой
-                        document.querySelector('.workspace-button-big').classList.toggle('is-active') // Включается большая кнопка в рабочей области для открытия окна с добавлением и выбором фото
+                        // document.querySelector('.workspace-button-big').classList.toggle('is-active') // Включается большая кнопка в рабочей области для открытия окна с добавлением и выбором фото
+
                     }
                     const cc = async () => {
                         await tt()
                         select.classList.toggle('is-selected') // Кнопка на которую мы нажали становится выбранной
-                        document.querySelector('.workspace-button-big').classList.toggle('is-active') // Выключается большая кнопка в рабочей области для открытия окна с добавлением и выбором фото
+                        // document.querySelector('.workspace-button-big').classList.toggle('is-active') // Выключается большая кнопка в рабочей области для открытия окна с добавлением и выбором фото
 
                         // Если честно то я уже забыл нафига я сперва выключаю большую кнопку а потом снова включаю
                     }
 
                     cc().then(() => {
-                        console.log('completed')
                     })
-                    console.log('find')
                 }
 
                 // В остальных случаях (которые соответствуют самому первому выбору кнопки-вкладки) мы просто делаем кнопку-вкладку выбраннной и включаем большую кнопку
                 else {
-                    console.log('ban')
                     select.classList.toggle('is-selected')
                     document.querySelector('.workspace-button-big').classList.toggle('is-active')
                 }
             }
 
             else if (document.querySelector('.js-workspace-block.js-active')) { // Если да, то проводим те же операции но с учётом того что некоторые вкладки имеют активные блоки с фото
-                console.log('PARAM')
-                if (!select.classList.contains('js-filled')) { // Если кликнутая вкладка не имеет активного блока с фото
+                if (!select.parentElement.classList.contains('js-filled') && !document.querySelector('.js-workspace-block.is-active')) { // Если кликнутая вкладка не имеет активного блока с фото
+                    document.querySelector('.is-selected').classList.toggle('is-selected')
+                    select.classList.toggle('is-selected')
+                    console.log('beta select hasnt')
+                }
+
+                else if (!select.parentElement.classList.contains('js-filled') && document.querySelector('.js-workspace-block.is-active')) {
                     document.querySelector('.is-selected').classList.toggle('is-selected')
                     select.classList.toggle('is-selected')
                     document.querySelector('.js-workspace-block.is-active').classList.toggle('is-active')
                     workspaceBigButton.classList.toggle('is-active')
-                    console.log('Ledy')
+                    console.log('beta select hasnt')
                 }
-                else if ((select.classList.contains('js-filled')) && (!select.classList.contains('is-selected') && (!document.querySelector('.js-size.is-selected.js-filled')))) { // Если кликнутая вкладка имеет активный блок с фото, но при этом не является выбранной и нет других выбранных вкладок с активным блоком
-                    document.querySelector('.js-size.is-selected').classList.toggle('is-selected')
+
+                else if ((select.parentElement.classList.contains('js-filled')) && (!select.classList.contains('is-selected') && (!document.querySelector('.js-size.js-filled span.is-selected')))) { // Если кликнутая вкладка имеет активный блок с фото, но при этом не является выбранной и нет других выбранных вкладок с активным блоком
+                    document.querySelector('.js-size span.is-selected').classList.toggle('is-selected')
                     select.classList.toggle('is-selected')
-                    console.log('Zaebal mraz', dataSizeBlocks.length)
                     for (let i = 0; i < dataSizeBlocks.length; i++) {
-                        console.log('Zaebal tvar')
-                        if (select.getAttribute('data-size') === workspacePhotosBlocks[i].getAttribute('data-size')) {
+                        if (select.parentElement.getAttribute('data-size') === workspacePhotosBlocks[i].getAttribute('data-size')) {
                             workspacePhotosBlocks[i].classList.toggle('is-active')
-                            console.log('Zaebal gnida')
                         }
                     }
                     workspaceBigButton.classList.toggle('is-active')
-                    console.log('Ledy GAGA')
+                    console.log('beta select has 1')
                 }
 
-                else if ((select.classList.contains('js-filled')) && (!select.classList.contains('is-selected') && (document.querySelector('.js-size.is-selected.js-filled')))) { // Если кликнутая вкладка имеет активный блок с фото, но при этом не является выбранной и есть другая выбранняа вкладка с активным блоком
-                    document.querySelector('.js-size.is-selected').classList.toggle('is-selected')
+                else if ((select.parentElement.classList.contains('js-filled')) && (!select.classList.contains('is-selected') && ((document.querySelector('.js-size.js-filled span.is-selected'))))) { // Если кликнутая вкладка имеет активный блок с фото, но при этом не является выбранной и есть другая выбранняа вкладка с активным блоком
+                    document.querySelector('.js-size span.is-selected').classList.toggle('is-selected')
                     document.querySelector('.js-workspace-block.is-active').classList.toggle('is-active')
                     select.classList.toggle('is-selected')
-                    console.log('Zaebal mraz', dataSizeBlocks.length)
                     for (let i = 0; i < dataSizeBlocks.length; i++) {
-                        console.log('Zaebal tvar')
-                        if (select.getAttribute('data-size') === workspacePhotosBlocks[i].getAttribute('data-size')) {
+                        if (select.parentElement.getAttribute('data-size') === workspacePhotosBlocks[i].getAttribute('data-size')) {
                             workspacePhotosBlocks[i].classList.toggle('is-active')
-                            console.log('Zaebal gnida')
                         }
                     }
-                    console.log('Ledy GAGA')
+                    console.log('beta select has 2')
                 }
             }
         })
@@ -286,7 +289,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Кнопка "Добавить фото" в окне загрузки фотографий
     downloadButtonAdd.addEventListener('click', () => {
-        console.log('click')
         let photos = document.querySelectorAll('.js-photo') // Получаем все контейнеры для фото в окне загрузки
 
 
@@ -297,7 +299,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     dataPhotos.push(photos[i])
                 }
             }
-            console.log(dataPhotos)
 
             // Проверка на соответсвие выбранной кнопки-вкладки и её блока с фото
             for (let i = 0; i < dataSizeBlocks.length; i++) {
@@ -318,14 +319,11 @@ document.addEventListener('DOMContentLoaded', function () {
                             await tt()
 
                             for (let g = 0; g < dataSizeBlocks.length; g++) {
-                                console.log('Zaebal tvar')
                                 if (document.querySelector('.js-size span.is-selected').parentElement.getAttribute('data-size') === workspacePhotosBlocks[i].getAttribute('data-size')) {
-                                    workspacePhotosBlocks[i].getElementsByClassName('photo')[g].insertAdjacentHTML('afterbegin', String(dataPhotos[g].outerHTML)) // Заполняем контейнеры фотографиями
-                                    console.log( workspacePhotosBlocks[i].getElementsByClassName('js-photo')[g])
+                                    workspacePhotosBlocks[i].getElementsByClassName('photo')[j].insertAdjacentHTML('afterbegin', String(dataPhotos[j].outerHTML)) // Заполняем контейнеры фотографиями
                                 }
 
                             }
-                            console.log("vot photo")
                         }
 
                         cc().then(() => {
