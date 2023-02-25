@@ -1,31 +1,33 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    const sizeWindow = document.getElementById('size-window')
-    const sizeWindowCloseButton = document.querySelectorAll('.js-size-toggle')
-    const sizeWindowButtonsSizeSelected = document.querySelector('.js-size-btns').childNodes
-    const sizeWindowButtonSelect = document.querySelector('.js-size-btn-select')
-    const underHeaderButton = document.querySelector('.js-under-header-btn')
-    const underHeaderSizeButtons = document.querySelector('.js-under-header-size-btns')
-    const underHeaderSizeButtonsActive = document.querySelectorAll('.js-size')
-    const underHeaderSizeCloseButtons = document.querySelectorAll('.js-size-close')
-    const downloadClose = document.querySelector('.js-download-close')
-    const workspaceBigButton = document.querySelector('.workspace-button-big')
-    const downloadWindow = document.getElementById('download-window')
-    const downloadHeaderButtons = document.querySelectorAll('.js-storage')
-    const downloadWorkspaceButton = document.querySelector('.js-download-workspace-button')
-    const downloadWorkspacePhotos = document.querySelectorAll('.js-download-workspace-photo')
-    const downloadButtonAdd = document.querySelector('.js-download-add')
-    const workspacePhotosBlocks = document.querySelectorAll('.js-workspace-block')
+
+    const sizeWindow = document.getElementById('size-window') //Окно выбора типа коллекций
+    const sizeWindowCloseButton = document.querySelectorAll('.js-size-toggle') // Кнопка закрытия окна с выбором коллекций
+
+    const sizeWindowButtonsSizeSelected = document.querySelector('.js-size-btns').childNodes // Кнопки с типами коллекций
+    const sizeWindowButtonSelect = document.querySelector('.js-size-btn-select') //
+    const underHeaderButton = document.querySelector('.js-under-header-btn') //
+    const underHeaderSizeButtons = document.querySelector('.js-under-header-size-btns') //
+    const underHeaderSizeButtonsActive = document.querySelectorAll('.js-size') //
+    const underHeaderSizeCloseButtons = document.querySelectorAll('.js-size-close') //
+    const downloadClose = document.querySelector('.js-download-close') //
+    const workspaceBigButton = document.querySelector('.workspace-button-big') //
+    const downloadWindow = document.getElementById('download-window') //
+    const downloadHeaderButtons = document.querySelectorAll('.js-storage') //
+    const downloadWorkspaceButton = document.querySelector('.js-download-workspace-button') //
+    const downloadWorkspacePhotos = document.querySelectorAll('.js-download-workspace-photo') //
+    const downloadButtonAdd = document.querySelector('.js-download-add') //
+    const workspacePhotosBlocks = document.querySelectorAll('.js-workspace-block') //
     const mainPhotoContainer = '                    <div class="photos-container vertical">\n' +  // Контейнер для фоток
         '                        <div class="photo">\n' +
         '                            <div class="photo-footer"></div>\n' +
         '                        </div>\n' +
-        '                    </div>'
-    let sizeNumbers = 0
-    let dataSizeButtons = []
-    let dataSizeBlocks = []
-    let dataPhotos = []
-
+        '                    </div>' //
+    let sizeNumbers = 0 //
+    let dataSizeButtons = [] //
+    let dataSizeBlocks = [] //
+    let dataPhotos = [] //
+    let count = 0 // Счётчик выбранных фото
 
     // Заполнение массива блоками под фотографии (можно найти по классу workspace-photos)
     for (let i = 0; i < workspacePhotosBlocks.length; i++) {
@@ -38,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
             sizeWindow.classList.toggle('is-active')
         })
     })
-
 
     // Выбор размеров в окне выбора
     sizeWindowButtonsSizeSelected.forEach((button) => {
@@ -105,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     })
 
-    // Кнопки закрытия кнопок-вкладок внутри кнопок-вкладок (смех)
+// Кнопки закрытия кнопок-вкладок внутри кнопок-вкладок (смех)
     underHeaderSizeCloseButtons.forEach((close) => {
         close.addEventListener('click', () => {
             let buttonsSizeSelected = document.querySelectorAll('.js-selected')
@@ -147,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
     // Включенные на данный момент кнопки-вкладки
-    underHeaderSizeButtonsActive.forEach((select) => {
+    document.querySelectorAll('.js-size span').forEach((select) => {
         select.addEventListener('click', () => {
             // Проверяем включен ли хоть один блок с фотографиями
             if (!document.querySelector('.js-workspace-block.js-active')) { // Если нет, то
@@ -249,16 +250,15 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     })
 
-
     // Кнопка "+ загрузить фотографии" в окне закгрузки (реализайия пока что такова что при нажатии она просто выключается и включается блок с фотками которые я вставил)
     downloadWorkspaceButton.addEventListener('click', () => {
         downloadWorkspaceButton.classList.toggle('is-active')
         document.querySelector('.download-workspace-photos').classList.toggle('is-active')
     })
 
-    let count = 0 // Счётчик выбранных фото
     downloadWorkspacePhotos.forEach((photo) => {
         photo.addEventListener('click', () => {
+
             if (!photo.classList.contains('js-selected')) // Если кликнули на не выбранное фото
             {
                 photo.classList.toggle('is-selected')
@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 count -= 1
             }
 
-            if (count > 1) { // Делаем активной кнопку "Добавить фото" если выбрана хотябы одна фотография
+            if (count === 1) { // Делаем активной кнопку "Добавить фото" если выбрана хотябы одна фотография
                 document.querySelector('.js-download-add').classList.add('is-active')
             }
             else if (count === 0) { // Если ни одна не выбрана то деактивируем
@@ -280,6 +280,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         })
     })
+
+//______________________________________________________________________________________________________________________
+
 
     // Кнопка "Добавить фото" в окне загрузки фотографий
     downloadButtonAdd.addEventListener('click', () => {
@@ -298,12 +301,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Проверка на соответсвие выбранной кнопки-вкладки и её блока с фото
             for (let i = 0; i < dataSizeBlocks.length; i++) {
-                if (document.querySelector('.js-size.is-selected').getAttribute('data-size') === workspacePhotosBlocks[i].getAttribute('data-size')) { // Если соответствует то
+                if (document.querySelector('.js-size span.is-selected').parentElement.getAttribute('data-size') === workspacePhotosBlocks[i].getAttribute('data-size')) { // Если соответствует то
                     workspacePhotosBlocks[i].classList.toggle('is-active') // Включаем блок
                     workspacePhotosBlocks[i].classList.add('js-active') // Указатель того что блок активен
                     workspaceBigButton.classList.toggle('is-active') // Выключаем большую кнопку в рабочем пространстве
                     downloadWindow.classList.toggle('is-active') // Выключаем окно загрузки
-                    document.querySelector('.js-size.is-selected').classList.toggle('js-filled') // Присваиваем выбранной-кнопке вкладке указатель заполненности
+                    document.querySelector('.js-size span.is-selected').parentElement.classList.toggle('js-filled') // Присваиваем выбранной-кнопке вкладке указатель заполненности
 
                     // Цикл для добавления фотографий в блок
                     for (let j = 0; j < dataPhotos.length; j++) {
@@ -316,7 +319,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                             for (let g = 0; g < dataSizeBlocks.length; g++) {
                                 console.log('Zaebal tvar')
-                                if (document.querySelector('.js-size.is-selected').getAttribute('data-size') === workspacePhotosBlocks[i].getAttribute('data-size')) {
+                                if (document.querySelector('.js-size span.is-selected').parentElement.getAttribute('data-size') === workspacePhotosBlocks[i].getAttribute('data-size')) {
                                     workspacePhotosBlocks[i].getElementsByClassName('photo')[g].insertAdjacentHTML('afterbegin', String(dataPhotos[g].outerHTML)) // Заполняем контейнеры фотографиями
                                     console.log( workspacePhotosBlocks[i].getElementsByClassName('js-photo')[g])
                                 }
