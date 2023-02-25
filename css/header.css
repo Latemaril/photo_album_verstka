@@ -11,6 +11,11 @@
     justify-content: space-between;
 }
 
+.header-desktop span{
+    font-weight: 300;
+    font-size: 24px;
+}
+
 .header-mobile {
     justify-content: center;
 }

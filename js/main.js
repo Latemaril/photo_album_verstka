@@ -110,14 +110,18 @@ document.addEventListener('DOMContentLoaded', function () {
     underHeaderSizeCloseButtons.forEach((close) => {
         close.addEventListener('click', () => {
             let buttonsSizeSelected = document.querySelectorAll('.js-selected')
+            let closeParent = close.parentElement
 
             // Проверяем есть хоть один активный блок с фотографиями в рабочей области
             if (!document.querySelector('.js-workspace-block.js-active')) {
                 // Если нет, то кнопка-вкладка просто закрываается, а соответствующая ей кнопка в оке выбора размеров размораживается
                 for (let j = 0; j < buttonsSizeSelected.length; j++) {
-                    if (close.parentElement.getAttribute('data-size') === buttonsSizeSelected[j].getAttribute('data-size')) {
-                        close.parentElement.classList.toggle('is-inactive')
-                        close.parentElement.firstElementChild.classList.toggle('is-selected')
+                    if (closeParent.getAttribute('data-size') === buttonsSizeSelected[j].getAttribute('data-size')) {
+                        closeParent.classList.toggle('is-inactive')
+                        if (closeParent.firstElementChild.classList.contains('is-selected')) {
+                            closeParent.firstElementChild.classList.toggle('is-selected')
+                            workspaceBigButton.classList.toggle('is-active')
+                        }
                         buttonsSizeSelected[j].classList.remove( 'js-selected')
                         buttonsSizeSelected[j].classList.toggle('is-froze')
                         buttonsSizeSelected[j].classList.toggle( 'is-active')
@@ -127,17 +131,19 @@ document.addEventListener('DOMContentLoaded', function () {
             // Если да, то сперва мы проделываем тот же фокус, что и в первом случаем
             else {
                 for (let j = 0; j < buttonsSizeSelected.length; j++) {
-                    if (close.parentElement.getAttribute('data-size') === buttonsSizeSelected[j].getAttribute('data-size')) {
-                        close.parentElement.classList.toggle('is-inactive')
-                        close.parentElement.firstElementChild.classList.toggle('is-selected')
+                    if (closeParent.getAttribute('data-size') === buttonsSizeSelected[j].getAttribute('data-size')) {
+                        closeParent.classList.toggle('is-inactive')
+                        if (closeParent.firstElementChild.classList.contains('is-selected')) {
+                            closeParent.firstElementChild.classList.toggle('is-selected')
+                        }
                         buttonsSizeSelected[j].classList.remove( 'js-selected')
                         buttonsSizeSelected[j].classList.toggle('is-froze')
                         buttonsSizeSelected[j].classList.toggle( 'is-active')
 
                         // Выключаем блок с фотографиями в рабочей области соответствующий своей кнопке-вкладке (тоесть опять идёт проверка на соответствие data-size)
                         for (let i = 0; i < dataSizeBlocks.length; i++) {
-                            if ((close.parentElement.getAttribute('data-size') === workspacePhotosBlocks[i].getAttribute('data-size')) && close.parentElement.classList.contains('js-filled')) { // На соответствие, а также на то что блок действительно активный и заполненный (за это отвечает класс js-filled)
-                                close.parentElement.classList.remove('js-filled')
+                            if ((closeParent.getAttribute('data-size') === workspacePhotosBlocks[i].getAttribute('data-size')) && close.parentElement.classList.contains('js-filled')) { // На соответствие, а также на то что блок действительно активный и заполненный (за это отвечает класс js-filled)
+                                closeParent.classList.remove('js-filled')
                                 workspacePhotosBlocks[i].classList.remove('is-active')
                                 workspacePhotosBlocks[i].classList.remove('js-active')
                             }
@@ -146,8 +152,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
-            if(workspaceBigButton.classList.contains('is-active')) {
+            if(workspaceBigButton.classList.contains('is-active') && closeParent.firstElementChild.classList.contains('is-selected')) {
                 workspaceBigButton.classList.toggle('is-active')
+                console.log('big button close')
             }
         })
     })
@@ -161,15 +168,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     function tt() {
                         document.querySelector('.is-selected').classList.toggle('is-selected')  // Текующая выбранная кнопка-вкладка перестаёт быть таковой
-                        // document.querySelector('.workspace-button-big').classList.toggle('is-active') // Включается большая кнопка в рабочей области для открытия окна с добавлением и выбором фото
-
                     }
                     const cc = async () => {
                         await tt()
                         select.classList.toggle('is-selected') // Кнопка на которую мы нажали становится выбранной
-                        // document.querySelector('.workspace-button-big').classList.toggle('is-active') // Выключается большая кнопка в рабочей области для открытия окна с добавлением и выбором фото
-
-                        // Если честно то я уже забыл нафига я сперва выключаю большую кнопку а потом снова включаю
                     }
 
                     cc().then(() => {
@@ -318,11 +320,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         const cc = async () => {
                             await tt()
 
-                            for (let g = 0; g < dataSizeBlocks.length; g++) {
-                                if (document.querySelector('.js-size span.is-selected').parentElement.getAttribute('data-size') === workspacePhotosBlocks[i].getAttribute('data-size')) {
-                                    workspacePhotosBlocks[i].getElementsByClassName('photo')[j].insertAdjacentHTML('afterbegin', String(dataPhotos[j].outerHTML)) // Заполняем контейнеры фотографиями
-                                }
-
+                            if (document.querySelector('.js-size span.is-selected').parentElement.getAttribute('data-size') === workspacePhotosBlocks[i].getAttribute('data-size')) {
+                                workspacePhotosBlocks[i].getElementsByClassName('photo')[j].insertAdjacentHTML('afterbegin', String(dataPhotos[j].outerHTML)) // Заполняем контейнеры фотографиями
                             }
                         }
 
