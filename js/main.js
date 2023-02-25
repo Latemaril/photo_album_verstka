@@ -1,3 +1,5 @@
+import {SizeWindow1} from './size-window.js'
+
 document.addEventListener('DOMContentLoaded', function () {
 
 
@@ -23,8 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
         '                            <div class="photo-footer"></div>\n' +
         '                        </div>\n' +
         '                    </div>' //
-    let sizeNumbers = 0 //
-    let dataSizeButtons = [] //
     let dataSizeBlocks = [] //
     let dataPhotos = [] //
     let count = 0 // Счётчик выбранных фото
@@ -44,66 +44,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // Выбор размеров в окне выбора
     sizeWindowButtonsSizeSelected.forEach((button) => {
         button.addEventListener('click', () => {
-            if (!button.classList.contains('is-active')) {
-                sizeNumbers += 1  // счётчик выбранных размеров
-
-                button.classList.toggle('is-active')
-                button.classList.toggle('js-selected')
-
-                dataSizeButtons.push(button.getAttribute('data-size'))  // Заношу в массив атрибут указатель выбранной кнопки
-            }
-            else if (!button.classList.contains('is-froze')) {  // Проверяю заморожена ли кнопка
-                for (let i = 0; i < dataSizeButtons.length; i++) { // Цикл призванный удалить из массива указатель кнопки из массива в случае если пользователь передумал и разоктивировал её
-                    if (button.getAttribute('data-size') === dataSizeButtons[i]) {
-                        button.classList.toggle('is-active')
-                        button.classList.toggle('js-selected')
-                        delete dataSizeButtons[i]
-                    }
-                }
-            }
+            SizeWindow1.sizeCollections(button)
         })
     })
 
 
     // Кнопка "ВЫБРАТЬ" в оке выбора размеров
     sizeWindowButtonSelect.addEventListener('click', () => {
-
-
-        sizeWindow.classList.toggle('is-active')  // Закрываем окно
-        underHeaderSizeButtons.classList.add('is-active') // Включаем блок-контейнер кнопок-вкладок размеров
-
-        if ((sizeNumbers > 0) && (!underHeaderButton.classList.contains('is-inactive'))) {
-            underHeaderButton.classList.toggle('is-inactive')   // Если число выбранных размеров больше 0, то включаем в контейнере кнопку "+ выбрать размер фото"
-        }
-
-        function toggleSizes() {
-            let buttonsSizeSelected = document.querySelectorAll('.js-selected') // Получаем все выбранные размеры(кнопки) в окне выбора размеров
-            buttonsSizeSelected.forEach((selected) => { // Замораживаем их
-                if (!selected.classList.contains('is-froze')) {
-                    selected.classList.toggle('is-froze')
-                }
-            })
-
-            // Цикл проверки на соответствие указателей data-size с целью включения кнопок-вкладок только с выбранными размерами
-            for (let i = 0; i < sizeNumbers; i++) {
-                for (let j = 0; j < underHeaderSizeButtonsActive.length; j++) {
-                    if (dataSizeButtons[i] === underHeaderSizeButtonsActive[j].getAttribute('data-size') && underHeaderSizeButtonsActive[j].classList.contains('is-inactive')) {
-                        underHeaderSizeButtonsActive[j].classList.toggle('is-inactive')
-                    }
-                }
-            }
-            document.querySelector('.js-workspace-button-select-all').classList.toggle('is-visible') // Выключаем мини кнопку "выделить всё"
-            document.querySelector('.js-add-photo-mini').classList.toggle('is-active') // Делаем мини кнопку "добавить фото" активной для использования
-        }
-
-        const cleanStack = async () => {
-            await toggleSizes()
-            dataSizeButtons = [] // Очищаем массив с атрибутами выбранных кнопок для последующего реюза
-        }
-
-        cleanStack().then(() => {
-        })
-
+        SizeWindow1.sizeSelect(sizeWindow, underHeaderSizeButtons, underHeaderButton, underHeaderSizeButtonsActive)
     })
 
 // Кнопки закрытия кнопок-вкладок внутри кнопок-вкладок (смех)
@@ -187,8 +135,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
             else if (document.querySelector('.js-workspace-block.js-active')) { // Если да, то проводим те же операции но с учётом того что некоторые вкладки имеют активные блоки с фото
                 if (!select.parentElement.classList.contains('js-filled') && !document.querySelector('.js-workspace-block.is-active')) { // Если кликнутая вкладка не имеет активного блока с фото
-                    document.querySelector('.is-selected').classList.toggle('is-selected')
+                    if (document.querySelector('.is-selected')){
+                        document.querySelector('.is-selected').classList.toggle('is-selected')
+                    }
                     select.classList.toggle('is-selected')
+                    if (!workspaceBigButton.classList.contains('is-active')) {
+                        workspaceBigButton.classList.toggle('is-active')
+                    }
                     console.log('beta select hasnt')
                 }
 
@@ -197,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     select.classList.toggle('is-selected')
                     document.querySelector('.js-workspace-block.is-active').classList.toggle('is-active')
                     workspaceBigButton.classList.toggle('is-active')
-                    console.log('beta select hasnt')
+                    console.log('beta select hasnt 2')
                 }
 
                 else if ((select.parentElement.classList.contains('js-filled')) && (!select.classList.contains('is-selected') && (!document.querySelector('.js-size.js-filled span.is-selected')))) { // Если кликнутая вкладка имеет активный блок с фото, но при этом не является выбранной и нет других выбранных вкладок с активным блоком
