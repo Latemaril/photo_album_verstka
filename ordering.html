@@ -7,7 +7,7 @@
   <title>Zakaz</title>
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/media.css">
-  <script src="./js/main.js"></script>
+  <script type="module" src="./js/main.js"></script>
 </head>
 <body>
   <div class="ordering-page flex">
@@ -32,7 +32,7 @@
           <p>Телефон</p>
           <div class="input-container">
             <div>
-              <input type="text" placeholder="+7___ ___ __ __">
+              <label><input type="tel" placeholder="+7___ ___ __ __"></label>
             </div>
           </div>
         </form>
@@ -40,7 +40,7 @@
           <p>email</p>
           <div class="input-container">
             <div>
-              <input type="text" placeholder="test@test.ru">
+              <input type="email" placeholder="test@test.ru">
             </div>
           </div>
         </form>
@@ -54,8 +54,8 @@
             </div></div>
           <div class="method">
             <div>
-              <label><input type="radio">До пункта выдачи от 1 раб.дня</label>
-              <label><input type="radio">Самовывоз – г.Красногорск, ул.Спасская, 1а</label>
+              <label><input type="radio" name="method">До пункта выдачи от 1 раб.дня</label>
+              <label><input type="radio" name="method">Самовывоз – г.Красногорск, ул.Спасская, 1а</label>
             </div>
           </div>
           <form>
@@ -74,12 +74,25 @@
 
 
       <section class="half-two">
-        <form>
+        <form class="form-comment">
           <div>
-            <input type="text">
+            <label><input type="text" placeholder="Комментарий к заказу"></label>
           </div>
         </form>
-        <form></form>
+        <form class="form-payment">
+          <p>Оплата</p>
+          <div class="payment">
+            <label><input type="radio" name="payment">Оплата картой на сайте</label>
+            <label><input type="radio" name="payment">Оплата после подтверждения заказа</label>
+          </div>
+          <div class="total-amount">
+            <p>Сумма заказ: 890 ₽</p>
+            <p>Доставка: 210 ₽</p>
+            <p>Итого к оплате: 2 100 ₽</p>
+          </div>
+          <button>Оформить заказ</button>
+          <p class="safe-policy">нажимая на кнопку, вы даёте согласие на обработку персональных данных и соглашаетесь с <a href="">политикой безопасности</a></p>
+        </form>
       </section>
 
     </main>

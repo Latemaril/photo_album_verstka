@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const sizeWindow = document.getElementById('size-window') //Окно выбора типа коллекций
     const sizeWindowCloseButton = document.querySelectorAll('.js-size-toggle') // Кнопка закрытия окна с выбором коллекций
 
-    const sizeWindowButtonsSizeSelected = document.querySelector('.js-size-btns').childNodes // Кнопки с типами коллекций
+    // const sizeWindowButtonsSizeSelected = document.querySelector('.js-size-btns').childNodes // Кнопки с типами коллекций
     const sizeWindowButtonSelect = document.querySelector('.js-size-btn-select') //
     const underHeaderButton = document.querySelector('.js-under-header-btn') //
     const underHeaderSizeButtons = document.querySelector('.js-under-header-size-btns') //

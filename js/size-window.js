@@ -6,8 +6,7 @@ export class SizeWindow1 {
         if (!button.classList.contains('is-active')) {
             this.sizeNumbers += 1  // счётчик выбранных размеров
 
-            button.classList.toggle('is-active')
-            button.classList.toggle('js-selected')
+            button.classList.add("is-active","js-selected")
             console.log('JS class is working')
             console.log(button.getAttribute('data-size'))
             this.dataSizeButtons.push(button.getAttribute('data-size'))  // Заношу в массив атрибут указатель выбранной кнопки
@@ -35,26 +34,23 @@ export class SizeWindow1 {
 
         function toggleSizes() {
 
-            let buttonsSizeSelected = document.querySelectorAll('.js-selected') // Получаем все выбранные размеры(кнопки) в окне выбора размеров
+            let buttonsSizeSelected = document.querySelectorAll('.js-selected:not(.is-froze)') // Получаем все выбранные размеры(кнопки) в окне выбора размеров
             buttonsSizeSelected.forEach((selected) => { // Замораживаем их
-                if (!selected.classList.contains('is-froze')) {
-                    selected.classList.toggle('is-froze')
-                }
+                !selected.classList.contains('is-froze') ?
+                    selected.classList.toggle('is-froze'):
+                    console.log(selected)
             })
 
             // Цикл проверки на соответствие указателей data-size с целью включения кнопок-вкладок только с выбранными размерами
             for (let i = 0; i < self.sizeNumbers; i++) {
-                for (let j = 0; j < underHeaderSizeButtonsActive.length; j++) {
-                    if (self.dataSizeButtons[i] === underHeaderSizeButtonsActive[j].getAttribute('data-size') && underHeaderSizeButtonsActive[j].classList.contains('is-inactive')) {
-                        underHeaderSizeButtonsActive[j].classList.toggle('is-inactive')
-                    }
-                }
+                document.querySelector(`[data-size ="${self.dataSizeButtons[i]}"]`).classList.toggle('is-inactive')
             }
         }
 
         const cleanStack = async () => {
             await toggleSizes()
             this.dataSizeButtons = [] // Очищаем массив с атрибутами выбранных кнопок для последующего реюза
+            this.sizeNumbers = 0
         }
 
         cleanStack().then(() => {
