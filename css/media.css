@@ -1,7 +1,7 @@
 @import "main.css";
 
 
-@media (min-width:300px) and (max-width: 379px) {
+@media (min-width:300px) and (max-width: 450px) {
 
     /*-------------MAIN-------------*/
     #header {
@@ -368,7 +368,7 @@
 
 }
 
-@media (min-width:380px) and (max-width: 960px) {
+@media (min-width:451px) and (max-width: 960px) {
 
     /*-------------MAIN-------------*/
     #workspace {
