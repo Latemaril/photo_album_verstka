@@ -35,11 +35,6 @@ a {
     color: black;
 }
 
-blockquote {
-    font-weight: 300;
-    font-size: 24px;
-}
-
 
 #header {
     padding-top: 72px;
@@ -52,6 +47,7 @@ blockquote {
     flex-grow: 1;
 
     background-color: #FBFBFB;
+    overflow-y: auto;
 }
 
 #under-header {

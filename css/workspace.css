@@ -216,5 +216,9 @@
     border-radius: 20px;
 }
 
+.workspace-button-mobile.is-inactive {
+    display: none;
+}
+
 
 

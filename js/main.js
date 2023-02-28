@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const downloadWorkspacePhotos = document.querySelectorAll('.js-download-workspace-photo') //
     const downloadButtonAdd = document.querySelector('.js-download-add') //
     const workspacePhotosBlocks = document.querySelectorAll('.js-workspace-block') //
+    const sizeWindowButtonsSizeSelected = document.querySelector('.js-size-btns').childNodes
     const mainPhotoContainer = '                    <div class="photos-container vertical">\n' +  // Контейнер для фоток
         '                        <div class="photo">\n' +
         '                            <div class="photo-footer"></div>\n' +
@@ -52,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Кнопка "ВЫБРАТЬ" в оке выбора размеров
     sizeWindowButtonSelect.addEventListener('click', () => {
         SizeWindow1.sizeSelect(sizeWindow, underHeaderSizeButtons, underHeaderButton, underHeaderSizeButtonsActive)
+        document.querySelector('.workspace-button-mobile').classList.add('is-inactive')
     })
 
 // Кнопки закрытия кнопок-вкладок внутри кнопок-вкладок (смех)

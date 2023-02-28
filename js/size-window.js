@@ -45,6 +45,12 @@ export class SizeWindow1 {
             for (let i = 0; i < self.sizeNumbers; i++) {
                 document.querySelector(`[data-size ="${self.dataSizeButtons[i]}"]`).classList.toggle('is-inactive')
             }
+
+            document.querySelector('.photo') ? (
+                document.querySelector('.js-header-button-order').classList.toggle('is-inactive')
+            ) : (
+                console.log('null')
+            )
         }
 
         const cleanStack = async () => {
@@ -55,5 +61,6 @@ export class SizeWindow1 {
 
         cleanStack().then(() => {
         })
+
     }
 }

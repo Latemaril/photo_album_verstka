@@ -195,6 +195,10 @@
     object-fit: cover;
 }
 
+.tools-buttons-mobile {
+    display: none;
+}
+
 
 
 

@@ -1,27 +1,263 @@
 @import "main.css";
 
 
-@media (min-width:300px) and (max-width: 374px) {
+@media (min-width:300px) and (max-width: 379px) {
 
     /*-------------MAIN-------------*/
     #header {
         padding-top: 19px;
     }
 
-    #under-header {
+    #workspace {
+        border-top: none;
+    }
+
+    .under-header {
+        padding: 0;
+    }
+
+    .under-header-button {
         display: none;
     }
 
+    .under-header-size-buttons {
+        position: relative;
+        top: 0;
+
+        width: 100%;
+
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 16px;
+        /* identical to box height */
+
+
+        color: rgba(0, 0, 0, 0.5);
+
+        background-color: #E4E8F1;
+    }
+
+    .under-header-size-buttons button{
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+
+    .under-header-size-buttons.is-active div:not(.is-inactive) {
+        display: flex;
+        flex-direction: column;
+
+        width: 74px;
+        height: 50px;
+
+        background-color:  #E4E8F1;
+        border: none;
+    }
+
+    .under-header-size-buttons span {
+        justify-content: flex-start;
+
+        height: 100%;
+
+        font-weight: 300;
+        font-size: 14px;
+
+        color: #092F63;
+    }
+
+    .under-header-size-buttons.is-active .is-selected {
+        background-color: #E4E8F1;
+        box-shadow: none;
+
+        border-bottom: 2px solid #092F63;
+        border-radius: 0;
+    }
+
+    .under-header-size-buttons .size-close {
+        width: 100%;
+
+        margin-top: 5px;
+    }
+
+    .under-header-size-buttons .size-close svg{
+        margin-left: auto;
+    }
+
+    .under-header-size-button {
+
+        font-size: 14px;
+    }
+
+    .under-header-size-buttons.is-active .another {
+        width: 171px !important;
+        height: 50px;
+        background-color:  #E4E8F1;
+    }
 
     /*-------------WORKSPACE-------------*/
     .workspace {
         padding-top: 0;
     }
 
-    .workspace-buttons {
+    .workspace-buttons-mini {
         display: none;
     }
 
+    .workspace-button-big {
+        margin-top: 64px;
+        width: 183px;
+        height: 228px;
+    }
+
+    .workspace-button-big a:before, .workspace-button-big a:after {
+        position: absolute;
+        top: 70px;
+        right: 90px;
+        content: ' ';
+        height: 25px;
+        width: 1.5px;
+    }
+
+    .workspace-button-big span {
+        font-size: 16px;
+    }
+
+
+    #download-window {
+        overflow-y: hidden;
+    }
+
+    .l-download-container {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .download-header {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        gap: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+        background: #E4E8F1;
+        border-bottom: 1px solid #D8D7D7;
+    }
+
+    .download-header button {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .download-header span {
+        font-size: 16px;
+        margin-bottom: 9px;
+    }
+
+    .download-header .close {
+        top: 7px;
+        right: 15px;
+    }
+
+    .download-header .close svg{
+        height: 25px;
+    }
+
+    .download-workspace {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .download-workspace button{
+        padding-top: 0;
+    }
+
+    .tools-buttons-mobile {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        margin-top: 20px;
+
+        width: 100%;
+        height: 40px;
+    }
+
+    .tools-buttons-mobile button {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        height: 100%;
+        max-width: 63px;
+
+        font-size: 8px;
+        color: rgba(9, 47, 99, 0.4);;
+    }
+
+    .download-workspace {
+        font-size: 20px;
+
+        overflow-y: auto;
+    }
+
+    .download-workspace-button {
+        width: 100%;
+        justify-content: center;
+
+        font-size: 20px !important;
+        padding-top: 121px !important;
+    }
+
+    .download-footer .tools-buttons {
+        display: none;
+    }
+
+    .download-footer {
+        padding: 20px;
+
+        background: #D9D9D9;
+    }
+
+    .main-buttons .add-photo {
+        width: 155px;
+        height: 38px;
+
+        font-weight: 400;
+        font-size: 12px;
+    }
+
+    .download-footer .main-buttons {
+        width: 100%;
+        display: flex;
+        gap: 0;
+        justify-content: space-between;
+    }
+
+    .main-buttons .download-photo {
+        width: 159px;
+        height: 38px;
+
+        font-weight: 400;
+        font-size: 12px;
+        border: 1px solid #092F63;
+        background: #D9D9D9;
+    }
+
+
+    .download-workspace-photos {
+        display: none;
+        width: 100%;
+        height: auto;
+        padding: 36px;
+        overflow-y: auto;
+    }
     /*-------------HEADER-------------*/
     .header {
         padding: 0 24px 14px 24px;
@@ -31,7 +267,11 @@
         display: block;
     }
 
-    .header blockquote, .header-button-hints {
+    .header .header-button-hints {
+        display: none;
+    }
+
+    .header-desktop span {
         display: none;
     }
 
@@ -58,6 +298,22 @@
     .header-button-order {
         font-weight: 400;
         font-size: 12px;
+    }
+
+    .workspace-photos .photos-container.vertical {
+        position: relative;
+        width: 152px;
+        height: 198px;
+        padding: 11.5px;
+    }
+
+    .workspace-photos.is-active {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        padding-top: 29.5px;
     }
 
     /*-------------SIZE WINDOW-------------*/
@@ -112,15 +368,29 @@
 
 }
 
-@media (min-width:375px) and (max-width: 960px) {
+@media (min-width:380px) and (max-width: 960px) {
 
     /*-------------MAIN-------------*/
+    #workspace {
+        border-top: none;
+    }
+
     #header {
         padding-top: 19px;
     }
 
-    #under-header {
+    .under-header-button {
         display: none;
+    }
+
+    .under-header-size-buttons {
+        top: 0;
+    }
+
+    .under-header-size-buttons.is-active div {
+
+        background-color: #FFFFFF;
+        border: none;
     }
 
     /*-------------WORKSPACE-------------*/
@@ -128,7 +398,7 @@
         padding-top: 0;
     }
 
-    .workspace-buttons {
+    .workspace-buttons-mini {
         display: none;
     }
 
@@ -141,7 +411,11 @@
         display: block;
     }
 
-    .header blockquote, .header-button-hints {
+    .header .header-button-hints {
+        display: none;
+    }
+
+    .header-desktop span {
         display: none;
     }
 
