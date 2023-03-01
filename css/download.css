@@ -34,7 +34,7 @@
     border-bottom: 1px solid #D8D7D7;
 }
 
-.download-header button.is-active {
+.download-header-btn.is-active {
     border-bottom: 3px solid #092F63;
 }
 
@@ -45,14 +45,14 @@
     color: #092F63;
 }
 
-.download-header .close {
+.download-btn-close {
     position: absolute;
 
     top: 13px;
     right: 26px;
 }
 
-.download-workspace {
+.download-work {
     width: 100%;
 
     display: flex;
@@ -61,8 +61,9 @@
     flex-grow: 1;
 }
 
-.download-workspace button{
+.download-work-btn {
     display: none;
+
     padding-top: 191px;
     align-self: flex-start;
 
@@ -72,7 +73,7 @@
     color: #092F63;
 }
 
-.download-workspace button.is-active{
+.download-work-btn.is-active{
     display: flex;
 }
 
@@ -88,13 +89,13 @@
     border-top: 1px solid #D8D7D7;
 }
 
-.download-footer .main-buttons {
+.download-footer-main-btns {
     display: flex;
     gap: 35px;
 
 }
 
-.main-buttons .download-photo{
+.download-photo{
     width: 171px;
     height: 51px;
 
@@ -110,7 +111,7 @@
     color: #092F63;
 }
 
-.main-buttons .add-photo{
+.add-photo{
     width: 214px;
     height: 51px;
 
@@ -124,13 +125,13 @@
     color: rgba(255, 255, 255, 0.5);
 }
 
-.main-buttons .add-photo.is-active{
+.add-photo.is-active{
     background: #092F63;
 
     color: rgb(255, 255, 255);
 }
 
-.download-footer .tools-buttons {
+.download-footer-tools-btns {
     display: flex;
     gap: 54px;
 
@@ -140,19 +141,19 @@
     color: rgba(9, 47, 99, 0.5);
 }
 
-.tools-buttons button {
+.download-footer-tools-btns button {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 15px;
 }
 
-.tools-buttons span {
+.download-footer-tools-btns span {
     max-width: 129px;
     text-align: left;
 }
 
-.download-workspace-photos {
+.download-work-photos {
     display: none;
     width: 100%;
     height: auto;
@@ -161,8 +162,8 @@
     overflow-y: auto;
 }
 
-.download-workspace-photos.is-active {
-    display: flex;
+.download-work-photos {
+    display: none;
 
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -170,8 +171,12 @@
 
 }
 
+.download-work-photos.is-active {
+    display: flex;
+}
 
-.download-workspace-photos .photo{
+
+.download-work-photos .photo{
     width: 129px;
     height: 99px;
 
@@ -184,7 +189,7 @@
     cursor: pointer;
 }
 
-.download-workspace-photos .photo.is-selected {
+.download-work-photos .photo.is-selected {
     border: 4px solid #092F63;
 }
 
@@ -195,9 +200,23 @@
     object-fit: cover;
 }
 
-.tools-buttons-mobile {
+.tools-btns-mobile {
     display: none;
 }
+
+.download-work-btn span:last-child {
+    display: none;
+}
+
+.download-photo span:last-child {
+    display: none;
+
+    font-weight: 400;
+    font-size: 12px;
+}
+
+
+
 
 
 

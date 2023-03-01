@@ -2,6 +2,9 @@
     padding: 0 10px 26px 10px;
 
     flex-direction: column;
+
+    font-weight: 300;
+    font-size: 16px;
 }
 
 .header-desktop {
@@ -11,8 +14,12 @@
     justify-content: space-between;
 }
 
+.logo svg{
+    width: 100%;
+    height: 100%;
+}
+
 .header-desktop span{
-    font-weight: 300;
     font-size: 24px;
 }
 
@@ -22,42 +29,46 @@
 
 .header-mobile span {
     padding-top: 30px;
-
-    font-weight: 300;
-    font-size: 16px;
 }
 
-.header-buttons {
+.blockquote-desktop {
+    display: block;
+}
+
+.blockquote-mobile {
+    display: none;
+}
+
+.header-btns {
 
 }
 
-.header-button-order {
+.header-btn-order {
     width: 190px;
     height: 67px;
 
     border-radius: 10px;
 
     font-weight: 700;
-    font-size: 16px;
     text-transform: uppercase;
-    background: #092F63;
+    background: rgba(9, 47, 99, 0.5);
 }
 
-.header-button-order.is-inactive {
-    background: rgba(9, 47, 99, 0.5) !important;
-}
 
-.header-button-order a {
+.header-btn-order a {
     color: rgba(255, 255, 255, 0.5);
 }
 
-.header-button-order.is-inactive a {
-    color: #FFFFFF !important;
+.header-btn-order.is-active {
+    background-color: #092F63;
 }
 
-.header-button-hints {
+.header-btn-order.is-active a{
+    color: #FFF;
+}
+
+.header-btn-hints {
     padding-right: 43px;
 
-    font-weight: 300;
     font-size: 16px;
 }

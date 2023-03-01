@@ -43,11 +43,11 @@ export class SizeWindow1 {
 
             // Цикл проверки на соответствие указателей data-size с целью включения кнопок-вкладок только с выбранными размерами
             for (let i = 0; i < self.sizeNumbers; i++) {
-                document.querySelector(`[data-size ="${self.dataSizeButtons[i]}"]`).classList.toggle('is-inactive')
+                document.querySelector(`[data-size ="${self.dataSizeButtons[i]}"]`).classList.toggle('is-active')
             }
 
             document.querySelector('.photo') ? (
-                document.querySelector('.js-header-button-order').classList.toggle('is-inactive')
+                document.querySelector('.js-header-btn').classList.toggle('is-active')
             ) : (
                 console.log('null')
             )

@@ -1,10 +1,12 @@
 .ordering-page {
-    margin-top: 70px;
-
+    display: flex;
     flex-direction: column;
+
+    margin-top: 70px;
 }
 
-.l-ordering-container, .l-ordering-title-container{
+.l-ordering-container,
+.l-ordering-title-container{
     display: flex;
 
     max-width: 1440px;
@@ -39,7 +41,7 @@
     font-size: 36px;
 }
 
-.ordering-title .amount-payable {
+.amount-payable {
     font-weight: 300;
     font-size: 24px;
 }
@@ -202,7 +204,7 @@
     font-size: 16px;
 }
 
-.form-payment button {
+.form-payment-btn {
     margin-left: auto;
     margin-top: 24px;
 
@@ -221,7 +223,7 @@
     cursor: default;
 }
 
-.form-payment button.is-active {
+.form-payment-btn.is-active {
     color: rgba(255, 255, 255, 0.5);
 
     background: #092F63;

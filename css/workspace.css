@@ -1,3 +1,10 @@
+.l-main-container {
+    max-width: 1250px;
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .workspace {
     padding-top: 54px;
 
@@ -5,52 +12,44 @@
     justify-content: center;
 }
 
-.workspace-buttons {
+.work-btns {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.workspace-buttons-mini  {
+.work-btns-mini  {
     display: flex;
     gap: 54px;
     justify-content: center;
 }
 
-.workspace-buttons span {
+.work-btns span {
     font-weight: 300;
     font-size: 16px;
 
     color: rgba(9, 47, 99, 0.4);
 }
 
-.workspace-buttons-mini button.is-visible {
+.work-btns-mini button.is-visible {
     display: flex;
 }
 
-.workspace-buttons-mini button{
+.work-btns-mini button{
     display: none;
 
     align-items: center;
     gap: 10px;
 }
 
-.workspace-buttons-mini button.is-active path{
+.work-btns-mini button.is-active path{
     stroke: #092F63;
 }
 
-.workspace-buttons-mini button.is-active span{
+.work-btns-mini button.is-active span{
     color: #092F63;
 }
-
-/*.workspace-buttons-mini button:hover path{*/
-/*    stroke: #092F63;*/
-/*}*/
-
-/*.workspace-buttons-mini button:hover span{*/
-/*    color: #092F63;*/
-/*}*/
 
 .workspace-button-add {
     padding-top: 148px;
@@ -85,7 +84,7 @@
     color: #092F63;
 }
 
-.workspace-button-big {
+.works-btn-big {
     position: relative;
 
     display: none;
@@ -103,11 +102,11 @@
     border-radius: 20px;
 }
 
-.workspace-button-big.is-active{
+.works-btn-big.is-active{
     display: flex !important;
 }
 
-.workspace-button-big span{
+.works-btn-big span{
     padding-top: 9px;
 
     align-self: center;
@@ -118,7 +117,8 @@
     color: #092F63;
 }
 
-.workspace-button-big a:before, .workspace-button-big a:after {
+.works-btn-big a:before,
+.works-btn-big a:after {
     position: absolute;
     top: 94px;
     right: 110px;
@@ -128,19 +128,16 @@
     width: 2px;
     background-color: #092F63;
 }
-.workspace-button-big a:before {
+.works-btn-big a:before {
     transform: rotate(90deg);
 }
-.workspace-button-big a:after {
+.works-btn-big a:after {
     transform: rotate(0deg);
 }
 
-.workspace-photos {
+.work-photos {
     display: none;
-}
-
-.workspace-photos.is-active {
-    display: flex;
+    flex-wrap: wrap;
 
     width: 100%;
     height: auto;
@@ -148,25 +145,29 @@
     padding-top: 29.5px;
 }
 
-.workspace-photos .photos-container.vertical {
-    position: relative;
-
-    width: 236.5px;
-    height: 306.5px;
-
-    padding: 13.5px 13.5px;
+.work-photos.is-active {
+    display: flex;
 }
 
-.workspace-photos .photos-container.horizontal {
+.photos-container.vertical {
     position: relative;
 
-    width: 236.5px;
-    height: 183.5px;
+    width: 223px;
+    height: 293px;
 
-    padding: 13.5px 13.5px;
+    margin: 13.5px 13.5px;
 }
 
-.workspace-photos .photo {
+.photos-container.horizontal {
+    position: relative;
+
+    width: 223px;
+    height: 293px;
+
+    margin: 13.5px 13.5px;
+}
+
+.work-photos .photo {
     position: relative;
 
     width: 100%;
@@ -177,7 +178,7 @@
     overflow: hidden;
 }
 
-.workspace-photos .photo .photo-footer{
+.work-photos .photo .photo-footer{
     position: absolute;
     bottom: 0;
 
@@ -189,7 +190,7 @@
 
 /*MOBILE VERSION*/
 
-.workspace-button-mobile {
+.work-btn-mobile {
     padding-top: 20vh;
 
     display: flex;
@@ -199,7 +200,7 @@
     justify-content: center;
 }
 
-.workspace-button-mobile {
+.work-btn-mobile {
 
     font-weight: 400;
     font-size: 20px;
@@ -207,7 +208,7 @@
     color: #FFFFFF;
 }
 
-.workspace-button-mobile button{
+.work-btn-mobile button{
     width: 248px;
     height: 76px;
 
@@ -216,7 +217,7 @@
     border-radius: 20px;
 }
 
-.workspace-button-mobile.is-inactive {
+.work-btn-mobile.is-inactive {
     display: none;
 }
 

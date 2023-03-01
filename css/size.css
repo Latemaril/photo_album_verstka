@@ -19,7 +19,7 @@
     padding: 20px 20px;
 }
 
-.size-button-exit {
+.size-btn-exit {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -34,7 +34,7 @@
     color: #092F63;
 }
 
-.size-buttons {
+.size-btns {
     padding-top: 73px;
 
     display: grid;
@@ -42,16 +42,14 @@
     gap: 45px 88px;
 }
 
-.size-buttons button {
+.size-btn {
     width: 176px;
     height: 54px;
 
     background: #FBFBFB;
     border: 1.5px solid #092F63;
-    border-radius: 20px
-}
+    border-radius: 20px;
 
-.size-buttons button {
     font-weight: 400;
     font-size: 20px;
 
@@ -59,17 +57,16 @@
 }
 
 
-
-.size-buttons button.is-active {
+.size-btn.is-active {
     background: #092F63;
     color: #F5F5F5;
 }
 
-.size-button-select {
+.size-btn-select {
     padding-top: 83px;
 }
 
-.size-button-select button {
+.size-btn-select button {
     width: 153px;
     height: 51px;
 
@@ -78,10 +75,14 @@
     border-radius: 10px;
 }
 
-.size-button-select button {
+.size-btn-select button {
     font-weight: 700;
     font-size: 16px;
     text-transform: uppercase;
 
     color: #FFFFFF;
+}
+
+.another-size-btn span:last-child {
+    display: none;
 }

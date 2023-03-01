@@ -8,18 +8,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // const sizeWindowButtonsSizeSelected = document.querySelector('.js-size-btns').childNodes // Кнопки с типами коллекций
     const sizeWindowButtonSelect = document.querySelector('.js-size-btn-select') //
-    const underHeaderButton = document.querySelector('.js-under-header-btn') //
-    const underHeaderSizeButtons = document.querySelector('.js-under-header-size-btns') //
+    const underHeaderButton = document.querySelector('.js-un-btn') //
+    const underHeaderSizeButtons = document.querySelector('.js-un-size-btns') //
     const underHeaderSizeButtonsActive = document.querySelectorAll('.js-size') //
     const underHeaderSizeCloseButtons = document.querySelectorAll('.js-size-close') //
     const downloadClose = document.querySelector('.js-download-close') //
-    const workspaceBigButton = document.querySelector('.workspace-button-big') //
+    const workspaceBigButton = document.querySelector('.works-btn-big') //
     const downloadWindow = document.getElementById('download-window') //
     const downloadHeaderButtons = document.querySelectorAll('.js-storage') //
-    const downloadWorkspaceButton = document.querySelector('.js-download-workspace-button') //
-    const downloadWorkspacePhotos = document.querySelectorAll('.js-download-workspace-photo') //
+    const downloadWorkspaceButton = document.querySelector('.js-download-work-btn') //
+    const downloadWorkspacePhotos = document.querySelectorAll('.js-download-work-photo') //
     const downloadButtonAdd = document.querySelector('.js-download-add') //
-    const workspacePhotosBlocks = document.querySelectorAll('.js-workspace-block') //
+    const workspacePhotosBlocks = document.querySelectorAll('.js-work-block') //
     const sizeWindowButtonsSizeSelected = document.querySelector('.js-size-btns').childNodes
     const mainPhotoContainer = '                    <div class="photos-container vertical">\n' +  // Контейнер для фоток
         '                        <div class="photo">\n' +
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Кнопка "ВЫБРАТЬ" в оке выбора размеров
     sizeWindowButtonSelect.addEventListener('click', () => {
         SizeWindow1.sizeSelect(sizeWindow, underHeaderSizeButtons, underHeaderButton, underHeaderSizeButtonsActive)
-        document.querySelector('.workspace-button-mobile').classList.add('is-inactive')
+        document.querySelector('.work-btn-mobile').classList.add('is-inactive')
     })
 
 // Кнопки закрытия кнопок-вкладок внутри кнопок-вкладок (смех)
@@ -63,11 +63,11 @@ document.addEventListener('DOMContentLoaded', function () {
             let closeParent = close.parentElement
 
             // Проверяем есть хоть один активный блок с фотографиями в рабочей области
-            if (!document.querySelector('.js-workspace-block.js-active')) {
+            if (!document.querySelector('.js-work-block.js-active')) {
                 // Если нет, то кнопка-вкладка просто закрываается, а соответствующая ей кнопка в оке выбора размеров размораживается
                 for (let j = 0; j < buttonsSizeSelected.length; j++) {
                     if (closeParent.getAttribute('data-size') === buttonsSizeSelected[j].getAttribute('data-size')) {
-                        closeParent.classList.toggle('is-inactive')
+                        closeParent.classList.toggle('is-active')
                         if (closeParent.firstElementChild.classList.contains('is-selected')) {
                             closeParent.firstElementChild.classList.toggle('is-selected')
                             workspaceBigButton.classList.toggle('is-active')
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
             else {
                 for (let j = 0; j < buttonsSizeSelected.length; j++) {
                     if (closeParent.getAttribute('data-size') === buttonsSizeSelected[j].getAttribute('data-size')) {
-                        closeParent.classList.toggle('is-inactive')
+                        closeParent.classList.toggle('is-active')
                         if (closeParent.firstElementChild.classList.contains('is-selected')) {
                             closeParent.firstElementChild.classList.toggle('is-selected')
                         }
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.js-size span').forEach((select) => {
         select.addEventListener('click', () => {
             // Проверяем включен ли хоть один блок с фотографиями
-            if (!document.querySelector('.js-workspace-block.js-active')) { // Если нет, то
+            if (!document.querySelector('.js-work-block.js-active')) { // Если нет, то
                 if (document.querySelector('.js-size span.is-selected') && !select.classList.contains('is-selected')) { // В случае если найдётся выбранная на данный момент вкладка и она не является той на которую мы только что нажали
 
                     function tt() {
@@ -131,12 +131,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 // В остальных случаях (которые соответствуют самому первому выбору кнопки-вкладки) мы просто делаем кнопку-вкладку выбраннной и включаем большую кнопку
                 else {
                     select.classList.toggle('is-selected')
-                    document.querySelector('.workspace-button-big').classList.toggle('is-active')
+                    document.querySelector('.works-btn-big').classList.toggle('is-active')
                 }
             }
 
-            else if (document.querySelector('.js-workspace-block.js-active')) { // Если да, то проводим те же операции но с учётом того что некоторые вкладки имеют активные блоки с фото
-                if (!select.parentElement.classList.contains('js-filled') && !document.querySelector('.js-workspace-block.is-active')) { // Если кликнутая вкладка не имеет активного блока с фото
+            else if (document.querySelector('.js-work-block.js-active')) { // Если да, то проводим те же операции но с учётом того что некоторые вкладки имеют активные блоки с фото
+                if (!select.parentElement.classList.contains('js-filled') && !document.querySelector('.js-work-block.is-active')) { // Если кликнутая вкладка не имеет активного блока с фото
                     if (document.querySelector('.is-selected')){
                         document.querySelector('.is-selected').classList.toggle('is-selected')
                     }
@@ -147,10 +147,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.log('beta select hasnt')
                 }
 
-                else if (!select.parentElement.classList.contains('js-filled') && document.querySelector('.js-workspace-block.is-active')) {
+                else if (!select.parentElement.classList.contains('js-filled') && document.querySelector('.js-work-block.is-active')) {
                     document.querySelector('.is-selected').classList.toggle('is-selected')
                     select.classList.toggle('is-selected')
-                    document.querySelector('.js-workspace-block.is-active').classList.toggle('is-active')
+                    document.querySelector('.js-work-block.is-active').classList.toggle('is-active')
                     workspaceBigButton.classList.toggle('is-active')
                     console.log('beta select hasnt 2')
                 }
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 else if ((select.parentElement.classList.contains('js-filled')) && (!select.classList.contains('is-selected') && ((document.querySelector('.js-size.js-filled span.is-selected'))))) { // Если кликнутая вкладка имеет активный блок с фото, но при этом не является выбранной и есть другая выбранняа вкладка с активным блоком
                     document.querySelector('.js-size span.is-selected').classList.toggle('is-selected')
-                    document.querySelector('.js-workspace-block.is-active').classList.toggle('is-active')
+                    document.querySelector('.js-work-block.is-active').classList.toggle('is-active')
                     select.classList.toggle('is-selected')
                     for (let i = 0; i < dataSizeBlocks.length; i++) {
                         if (select.parentElement.getAttribute('data-size') === workspacePhotosBlocks[i].getAttribute('data-size')) {
@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Кнопка "+ загрузить фотографии" в окне закгрузки (реализайия пока что такова что при нажатии она просто выключается и включается блок с фотками которые я вставил)
     downloadWorkspaceButton.addEventListener('click', () => {
         downloadWorkspaceButton.classList.toggle('is-active')
-        document.querySelector('.download-workspace-photos').classList.toggle('is-active')
+        document.querySelector('.download-work-photos').classList.toggle('is-active')
     })
 
     downloadWorkspacePhotos.forEach((photo) => {
