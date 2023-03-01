@@ -206,6 +206,10 @@
 
 
     /*-------РАБОЧАЯ ОБЛАСТЬ-------*/
+    .work-btns-mini {
+        display: none;
+    }
+
     .works-btn-big {
         margin-top: 64px;
         padding: 36px 36px;
@@ -314,6 +318,10 @@
         font-size: 8px;
 
         color: rgba(9, 47, 99, 0.4);
+    }
+
+    .download-footer .download-footer-tools-btns {
+        display: none;
     }
 
     .download-footer-main-btns {
@@ -443,42 +451,454 @@
     }
 
 
+}
+
+@media (min-width:450px) and (max-width: 960px) {
 
 
+    #workspace {
+        border-top: none;
+    }
+
+    /*--------ШАПКА-------*/
+    #header {
+        padding-top: 19px;
+
+        border-bottom: 1px solid #D8D7D7;
+    }
+
+    .header {
+        padding: 0 24px 14px 24px;
+        flex-direction: column;
+        font-weight: 300;
+        font-size: 16px;
+    }
+
+    .header-desktop {
+        padding-bottom: 31px;
+    }
+
+    .header-btn-hints {
+        display: none;
+    }
+
+    .blockquote-desktop {
+        display: none;
+    }
+
+    .blockquote-mobile {
+        display: flex;
+    }
+
+    .header-btn-order {
+        width: 92px;
+        height: 38px;
+
+        font-weight: 400;
+        font-size: 12px;
+    }
+
+    .logo {
+        width: 117px;
+        height: 39px;
+    }
 
 
+    /*-------ОКНО ВЫБОРА РАЗМЕРОВ-------*/
+    .l-size-container {
+        width: 327px;
+        height: 394px;
+        margin: 121px auto;
+
+        justify-content: flex-start;
+    }
+
+    .size {
+        padding: 50px 44px;
+    }
+
+    .size-btn-exit {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+
+        width: 15px;
+        height: 26px;
+    }
+
+    .size-title {
+        padding-top: 0;
+
+        font-weight: 300;
+        font-size: 22px;
+    }
+
+    .size-btns {
+        padding-top: 39px;
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 31px 22px;
+    }
+
+    .size-btn {
+        width: 104px;
+        height: 32px;
+
+        font-size: 14px;
+    }
+
+    .size-btn-select {
+        padding-top: 46px;
+    }
+
+    .size-btn-select button{
+        width: 152px;
+        height: 39px;
+
+        font-weight: 400;
+        font-size: 16px;
+    }
+
+    /*-------БЛОК ПОД ШАПКОЙ-------*/
+
+    #under-header {
+        background: #FBFBFB;
+    }
+
+    .under-header {
+        height: 48px;
+
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .un-btn {
+        display: none;
+    }
+
+    .un-size-btns {
+        height: 48px;
+        width: 100vw;
+
+        align-items: center;
+        gap: 40px;
+
+        font-weight: 300;
+        font-size: 14px;
+        color: #092F63;
+
+        background: #E4E8F1;
+    }
+
+    .another-size-btn {
+        width: 171px;
+        height: 16.62px;
+        background-color: #E4E8F1;
+        border: none;
+        border-radius: 0;
+    }
+
+    .another-size-btn span:last-child {
+        display: flex;
+
+        border-radius: 0;
+
+        font-weight: 300;
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+    .another-size-btn span:first-child {
+        display: none;
+    }
+
+    .un-size-btn {
+        flex-direction: column;
+        justify-content: center;
+
+        width: 74.31px;
+        height: 100%;
+        background-color: #E4E8F1;
+        border: none;
+        border-radius: 0;
+    }
+
+    .un-size-btns button {
+        position: relative;
+        top: 0;
+        right: 0;
+        height: 9px;
+        width: 7px;
+        cursor: pointer;
+    }
+
+    .un-size-btn button {
+        margin-left: auto;
+
+        top: 10px;
+    }
+
+    .un-size-btns span {
+        width: 100%;
+        height: 100%;
+
+        justify-content: flex-start;
+
+        border-radius: 0;
+    }
+
+    .un-size-btn .is-selected {
+        border-bottom: 2px solid #092F63;;
+
+        background-color: #E4E8F1;
+        box-shadow: none;
+    }
 
 
-
-
-
-
-
-
-
+    /*-------РАБОЧАЯ ОБЛАСТЬ-------*/
     .work-btns-mini {
         display: none;
+    }
+
+    .works-btn-big {
+        margin-top: 64px;
+        padding: 36px 36px;
+
+        width: 183px;
+        height: 228px;
+
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+        border-radius: 20px;
+    }
+
+    .works-btn-big a:before,
+    .works-btn-big a:after {
+        position: absolute;
+        top: 71px;
+        right: 90px;
+        content: ' ';
+        height: 25px;
+        width: 1.5px;
+    }
+
+    .works-btn-big span {
+        padding-top: 12px;
+        font-weight: 300;
+        font-size: 16px;
+    }
+
+    /*-------ОКНО ЗАГРУЗКИ ФОТО-------*/
+    .l-download-container {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .download-header {
+        height: 80px;
+
+        justify-content: center;
+
+        gap: 26px;
+    }
+
+    .download-header-btn {
+        display: flex;
+        align-items: flex-end;
+
+        padding-bottom: 9px;
+    }
+
+    .download-header span {
+        font-weight: 300;
+        font-size: 16px;
+    }
+
+    .download-btn-close {
+        position: absolute;
+        top: 7px;
+        right: 23px;
+
+        width: 15px;
+        height: 22px;
+    }
+
+    .download-work {
+        flex-direction: column;
+        justify-content: flex-start;
+
+        overflow-y: auto;
+    }
+
+    .download-work-btn {
+        align-self: center;
+
+        padding-top: 121px;
+    }
+
+    .download-work-btn span:first-child {
+        display: none;
+    }
+
+    .download-work-btn span:last-child {
+        display: flex;
+    }
+
+    .tools-btns-mobile {
+        display: flex;
+
+
+        padding: 18px 93px;
+
+        justify-content: space-between;
+    }
+
+    .tools-btns-mobile button {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        max-width: 63px;
+    }
+
+    .tools-btns-mobile span{
+        font-weight: 300;
+        font-size: 8px;
+
+        color: rgba(9, 47, 99, 0.4);
     }
 
     .download-footer .download-footer-tools-btns {
         display: none;
     }
 
+    .download-footer-main-btns {
+        display: flex;
+        margin: 0 auto 0 auto;
 
-}
-
-@media (min-width:450px) and (max-width: 960px) {
-
-
-    /*-------------MAIN-------------*/
-    #header {
-        padding-top: 19px;
+        gap: 13px;
     }
 
-    #workspace {
-        border-top: none;
+    .download-footer {
+        width: 100%;
+        height: 64px;
+
+        padding: 13px 0 13px 0;
+
+        background: #D9D9D9;
     }
 
+    .download-photo {
+        width: 159px;
+        height: 38px;
+
+        background: #D9D9D9;
+        border: 1px solid #092F63;
+
+        font-weight: 700;
+        font-size: 16px;
+
+        color: #092F63;
+    }
+
+    .download-photo span:first-child {
+        display: none;
+    }
+
+    .download-photo span:last-child {
+        display: block;
+    }
+
+    .add-photo {
+        width: 155px;
+        height: 38px;
+
+        font-weight: 400;
+        font-size: 12px;
+    }
+
+    .download-work-photos{
+        justify-content: center;
+
+        padding: 45px 35px;
+    }
+
+    .download-work-photos .photo {
+        width: 128px;
+        height: 98px;
+        margin: 11px 12px;
+    }
+
+    .download-work-photos .photo.is-selected {
+        border: 3px solid #092F63;
+    }
+
+    /*-------ФОТОГРАФИИ В РАБОЧЕЙ СРЕДЕ-------*/
+    .work-photos {
+        padding: 0;
+        justify-content: center;
+    }
+
+    .photos-container.vertical {
+        width: 152px;
+        height: 198px;
+
+        margin: 11px 11px;
+    }
+
+
+    /*-------ОФОРМЛЕНИЕ ЗАКАЗА-------*/
+    .ordering-page {
+
+    }
+
+    .ordering-title {
+        width: 231px;
+    }
+
+    .ordering-title .title {
+        font-weight: 300;
+        font-size: 24px;
+    }
+
+    .amount-payable {
+        padding-top: 37px;
+
+        font-weight: 300;
+        font-size: 16px;
+    }
+
+    .l-ordering-container {
+        display: block;
+    }
+
+    .ordering {
+        width: 312px;
+    }
+
+    .half-one,
+    .half-two {
+        width: 100%;
+    }
+
+    .input-container {
+        width: 100%;
+    }
+
+    .input-container input {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .form-comment {
+        width: 100%;
+    }
+
+    .total-amount {
+        margin-top: 34px;
+    }
 
 }
 
