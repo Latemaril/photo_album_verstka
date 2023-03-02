@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const downloadWorkspacePhotos = document.querySelectorAll('.js-download-work-photo') //
     const downloadButtonAdd = document.querySelector('.js-download-add') //
     const workspacePhotosBlocks = document.querySelectorAll('.js-work-block') //
+    const burger = document.querySelector('.header-burger')
+    const burgerMenuButtonClose = document.querySelector('.burger-menu-btn-close')
     const sizeWindowButtonsSizeSelected = document.querySelector('.js-size-btns').childNodes
     const mainPhotoContainer = '                    <div class="photos-container vertical">\n' +  // Контейнер для фоток
         '                        <div class="photo">\n' +
@@ -54,6 +56,15 @@ document.addEventListener('DOMContentLoaded', function () {
     sizeWindowButtonSelect.addEventListener('click', () => {
         SizeWindow1.sizeSelect(sizeWindow, underHeaderSizeButtons, underHeaderButton, underHeaderSizeButtonsActive)
         document.querySelector('.work-btn-mobile').classList.add('is-inactive')
+    })
+
+    // Бургер меню
+    burger.addEventListener('click', () => {
+        document.querySelector('#burger-menu').classList.toggle('is-active')
+    })
+
+    burgerMenuButtonClose.addEventListener('click', () => {
+        document.querySelector('#burger-menu').classList.toggle('is-active')
     })
 
 // Кнопки закрытия кнопок-вкладок внутри кнопок-вкладок (смех)
