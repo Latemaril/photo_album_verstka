@@ -176,6 +176,7 @@
         justify-content: center;
 
         min-width: 74.31px;
+        max-width: 76px;
         height: 100%;
         background-color: #E4E8F1;
         border: none;
@@ -346,6 +347,7 @@
     }
 
     .download-footer {
+        position: absolute;
         bottom: 0;
 
         width: 100%;
@@ -644,6 +646,7 @@
         justify-content: center;
 
         min-width: 74.31px;
+        max-width: 76px;
         height: 100%;
         background-color: #E4E8F1;
         border: none;
@@ -814,6 +817,7 @@
     }
 
     .download-footer {
+        position: absolute;
         bottom: 0;
 
         width: 100%;
