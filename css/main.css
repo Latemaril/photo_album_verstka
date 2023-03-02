@@ -11,6 +11,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 *{
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     outline: 0;
     margin: 0;
@@ -54,9 +55,19 @@ a {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+#burger-menu.is-active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
 #workspace {
     height: 100%;
     border-top: 1px solid #D8D7D7;
+
+    -webkit-box-flex: 1;
+
+    -ms-flex-positive: 1;
 
     flex-grow: 1;
 
@@ -71,6 +82,8 @@ a {
 }
 
 #gratitude-section.is-active {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -99,6 +112,12 @@ a {
     overflow-y: auto;
 }
 
+#size-window.is-active {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
+
 #download-window {
     display: none;
 
@@ -111,32 +130,49 @@ a {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+#download-window.is-active {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
 
 #wrapper {
-    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+
+    height: 100%;
 }
 
 #footer.is-inactive {
     display: none !important;
 }
 
-div[class*="l-"] {
-    display: flex;
-    display: -webkit-flex;
-    display: -ms-flexbox;
+#ordering-window {
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
+    margin-top: 70px;
+
+    background: #FFFFFF;
 }
 
-div[class*="m-"] {
-    display: flex;
-    display: -webkit-flex;
+#ordering-window.is-active {
+    display: -webkit-box;
     display: -ms-flexbox;
-}
-
-.flex {
     display: flex;
-    display: -webkit-flex;
-    display: -ms-flexbox;
 }
 
 .is-froze {
@@ -145,5 +181,4 @@ div[class*="m-"] {
 
     border: none !important;
 }
-
 

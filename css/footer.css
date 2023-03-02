@@ -5,10 +5,18 @@
 }
 
 .footer-buttons-main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
     width: 100%;
 
     padding-right: 10px;
     padding-left: 10px;
+
+    -webkit-box-pack: justify;
+
+    -ms-flex-pack: justify;
 
     justify-content: space-between;
 }
@@ -21,11 +29,21 @@
 }
 
 .footer-buttons-main button {
+    display: -webkit-box;
     display: flex;
-    display: -webkit-flex;
     display: -ms-flexbox;
 
+    -webkit-box-orient: vertical;
+
+    -webkit-box-direction: normal;
+
+    -ms-flex-direction: column;
+
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
