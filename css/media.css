@@ -41,8 +41,11 @@
     }
 
     .header-btn-order {
-        width: 92px;
         height: 38px;
+    }
+
+    .header-btn-order span{
+        padding: 0 16px;
 
         font-weight: 400;
         font-size: 12px;
@@ -51,6 +54,34 @@
     .logo {
         width: 117px;
         height: 39px;
+    }
+
+    /*-------БЛАГОДАРИМ ЗА ЗАКАЗ-------*/
+    .gratitude span {
+        padding-top: 103px;
+
+        font-weight: 400;
+        font-size: 28px;
+    }
+
+    .gratitude p {
+        width: 304px;
+
+        padding-top: 25px;
+
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 19px;
+    }
+
+    .gratitude-btn {
+        width: 228px;
+        height: 38px;
+
+        margin-top: 47px;
+
+        font-weight: 500;
+        font-size: 12px;
     }
 
 
@@ -424,6 +455,10 @@
 
     }
 
+    .l-ordering-title-container {
+        margin-top: 40px;
+    }
+
     .ordering-title {
         width: 231px;
     }
@@ -441,7 +476,7 @@
     }
 
     .l-ordering-container {
-        display: block;
+        display: block !important;
     }
 
     .ordering {
@@ -470,6 +505,14 @@
         margin-top: 34px;
     }
 
+    .form-payment-btn {
+        margin-top: 48px;
+        margin-right: auto;
+    }
+
+    .safe-policy {
+        margin-right: auto;
+    }
 
 }
 
@@ -511,8 +554,11 @@
     }
 
     .header-btn-order {
-        width: 92px;
         height: 38px;
+    }
+
+    .header-btn-order span{
+        padding: 0 16px;
 
         font-weight: 400;
         font-size: 12px;
@@ -894,6 +940,10 @@
 
     }
 
+    .l-ordering-title-container {
+        margin-top: 40px;
+    }
+
     .ordering-title {
         width: 231px;
     }
@@ -911,7 +961,7 @@
     }
 
     .l-ordering-container {
-        display: block;
+        display: block !important;
     }
 
     .ordering {
@@ -938,6 +988,15 @@
 
     .total-amount {
         margin-top: 34px;
+    }
+
+    .form-payment-btn {
+        margin-top: 48px;
+        margin-right: auto;
+    }
+
+    .safe-policy {
+        margin-right: auto;
     }
 
 }

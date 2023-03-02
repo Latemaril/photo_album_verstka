@@ -1,0 +1,46 @@
+.l-gratitude-container {
+    height: 100%;
+    width: 100%;
+
+    background: #FBFBFB;
+}
+
+.gratitude {
+    flex-direction: column;
+    align-items: center;
+}
+
+.gratitude span {
+    padding-top: 104px;
+
+    font-weight: 300;
+    font-size: 40px;
+}
+
+.gratitude p {
+    width: 521px;
+
+    padding-top: 54px;
+
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+}
+
+.gratitude-btn {
+    width: 367px;
+    height: 55px;
+
+    margin-top: 70px;
+
+    background: #092F63;
+    border: 2px solid #092F63;
+    border-radius: 10px;
+
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+
+    color: #FFFFFF;
+}

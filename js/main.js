@@ -20,6 +20,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const downloadWorkspacePhotos = document.querySelectorAll('.js-download-work-photo') //
     const downloadButtonAdd = document.querySelector('.js-download-add') //
     const workspacePhotosBlocks = document.querySelectorAll('.js-work-block') //
+    const workspace = document.querySelector('.js-work') //
+    const footer = document.getElementById('footer')
+    const gratitudeButton = document.querySelector('.js-gratitude-btn')
+    const orderButton = document.querySelector('.js-header-btn')
+    const orderWindow = document.getElementById('ordering-window')
+    const gratitudeSection = document.getElementById('gratitude-section')
+    const paymentButton = document.querySelector('.js-form-payment-btn')
     const burger = document.querySelector('.header-burger')
     const burgerMenuButtonClose = document.querySelector('.burger-menu-btn-close')
     const sizeWindowButtonsSizeSelected = document.querySelector('.js-size-btns').childNodes
@@ -36,6 +43,29 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let i = 0; i < workspacePhotosBlocks.length; i++) {
         dataSizeBlocks.push(workspacePhotosBlocks[i].getAttribute('data-size'))
     }
+
+    orderButton.addEventListener('click', () => {
+        orderWindow.classList.toggle('is-active')
+    })
+
+    paymentButton.addEventListener('click', () => {
+        console.log('grad active')
+        orderWindow.classList.toggle('is-active')
+        gratitudeSection.classList.toggle('is-active')
+        workspace.classList.toggle('is-active')
+        footer.classList.toggle('is-inactive')
+        document.querySelector('.blockquote-mobile').classList.toggle('is-inactive')
+        underHeaderButton.classList.toggle('is-inactive')
+    })
+
+    gratitudeButton.addEventListener('click', () => {
+        console.log('grad active')
+        gratitudeSection.classList.toggle('is-active')
+        workspace.classList.toggle('is-active')
+        footer.classList.toggle('is-inactive')
+        document.querySelector('.blockquote-mobile').classList.toggle('is-inactive')
+        underHeaderButton.classList.toggle('is-inactive')
+    })
 
     // Кнопка закрытия окна выбора размеров
     sizeWindowCloseButton.forEach((button) => {

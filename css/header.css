@@ -40,12 +40,16 @@
     align-self: center;
 }
 
+.blockquote-mobile.is-inactive{
+    display: none !important;
+}
+
 .header-btns {
 
 }
 
 .header-btn-order {
-    width: 190px;
+    width: auto;
     height: 67px;
 
     border-radius: 10px;
@@ -55,13 +59,18 @@
     background: rgba(9, 47, 99, 0.5);
 }
 
+.header-btn-order span {
+    padding: 0 54px;
 
-.header-btn-order a {
     color: rgba(255, 255, 255, 0.5);
 }
 
 .header-btn-order.is-active {
     background-color: #092F63;
+}
+
+.header-btn-order.is-active span {
+    color: #FFFFFF;
 }
 
 .header-btn-order.is-active a{

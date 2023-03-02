@@ -7,6 +7,7 @@
 @import "download.css";
 @import "ordering.css";
 @import "burger-menu.css";
+@import "gratitude-section.css";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 *{
@@ -43,6 +44,7 @@ a {
 #burger-menu {
     position: absolute;
     top: 0;
+    z-index: 150;
 
     display: none;
 
@@ -60,6 +62,16 @@ a {
 
     background-color: #FBFBFB;
     overflow-y: auto;
+}
+
+#gratitude-section {
+    display: none;
+
+    height: auto;
+}
+
+#gratitude-section.is-active {
+    display: flex;
 }
 
 #under-header {
@@ -95,7 +107,6 @@ a {
     z-index: 10;
 
     width: 100vw;
-    height: 100vh;
 
     background-color: rgba(0, 0, 0, 0.4);
 }
@@ -106,8 +117,8 @@ a {
     flex-direction: column;
 }
 
-#footer {
-
+#footer.is-inactive {
+    display: none !important;
 }
 
 div[class*="l-"] {

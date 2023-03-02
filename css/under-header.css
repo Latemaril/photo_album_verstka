@@ -16,7 +16,7 @@
 }
 
 .un-btn.is-inactive {
-    display: none;
+    display: none !important;
 }
 
 .un-size-btns {

@@ -1,8 +1,19 @@
-.ordering-page {
-    display: flex;
+#ordering-window {
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+
+    display: none;
     flex-direction: column;
 
     margin-top: 70px;
+
+    background: #FFFFFF;
+}
+
+#ordering-window.is-active {
+    display: flex;
 }
 
 .l-ordering-container,
