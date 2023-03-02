@@ -37,6 +37,7 @@
 
 .blockquote-mobile {
     display: none;
+    align-self: center;
 }
 
 .header-btns {

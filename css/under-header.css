@@ -124,3 +124,10 @@
     border-radius: 10px;
 }
 
+.size-scroll {
+    display: flex;
+    height: 100%;
+
+    gap: 20px;
+}
+

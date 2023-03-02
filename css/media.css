@@ -126,6 +126,15 @@
         display: none;
     }
 
+    .size-scroll {
+        flex-direction: row;
+        gap: 17px;
+
+        max-width: 76px;
+
+        overflow-x: scroll;
+    }
+
     .un-size-btns {
         height: 48px;
         width: 100vw;
@@ -166,7 +175,7 @@
         flex-direction: column;
         justify-content: center;
 
-        width: 74.31px;
+        min-width: 74.31px;
         height: 100%;
         background-color: #E4E8F1;
         border: none;
@@ -248,9 +257,10 @@
     .download-header {
         height: 80px;
 
-        justify-content: center;
+        padding: 0 20px;
+        gap: 0;
 
-        gap: 26px;
+        justify-content: space-between;
     }
 
     .download-header-btn {
@@ -325,15 +335,21 @@
     }
 
     .download-footer-main-btns {
-        display: flex;
-        margin: 0 auto 0 auto;
+        width: 100%;
 
-        gap: 13px;
+        display: flex;
+        justify-content: space-between;
+
+        margin: 0 24px;
+
+        gap: 0;
     }
 
     .download-footer {
         width: 100%;
         height: 64px;
+
+        justify-content: center;
 
         padding: 13px 0 13px 0;
 
@@ -576,6 +592,15 @@
         display: none;
     }
 
+    .size-scroll {
+        flex-direction: row;
+        gap: 17px;
+
+        max-width: 170px;
+
+        overflow-x: scroll;
+    }
+
     .un-size-btns {
         height: 48px;
         width: 100vw;
@@ -616,7 +641,7 @@
         flex-direction: column;
         justify-content: center;
 
-        width: 74.31px;
+        min-width: 74.31px;
         height: 100%;
         background-color: #E4E8F1;
         border: none;
@@ -698,9 +723,10 @@
     .download-header {
         height: 80px;
 
-        justify-content: center;
+        padding: 0 20px;
 
-        gap: 26px;
+        justify-content: space-between;
+        gap: 0;
     }
 
     .download-header-btn {
@@ -775,15 +801,21 @@
     }
 
     .download-footer-main-btns {
-        display: flex;
-        margin: 0 auto 0 auto;
+        width: 100%;
 
-        gap: 13px;
+        display: flex;
+        justify-content: space-between;
+
+        margin: 0 24px;
+
+        gap: 0;
     }
 
     .download-footer {
         width: 100%;
         height: 64px;
+
+        justify-content: center;
 
         padding: 13px 0 13px 0;
 
